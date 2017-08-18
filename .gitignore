@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+
+
+# Visual studio code
+.vscode
+
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
