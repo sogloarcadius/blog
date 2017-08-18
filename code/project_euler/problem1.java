@@ -1,17 +1,17 @@
+import java.util.ArrayList;
 
-Class Problem1 {
+public class Problem1 {
     
-    private ArrayList multiples_of_3_or_5;
-    private sum_multiples_of_3_or_5;
-    
-    public void static main (args []) {
+  
+    public static void main (String[] args ) {
+       
+       int n=10;
+       ArrayList<Integer> multiples_of_3_or_5 = new ArrayList<Integer>();
+       int sum_multiples_of_3_or_5 = 0;
         
-        multiples_of_3_or_5 = new ArrayList();
-        sum_multiples_of_3_or_5 = 0;
-        
-        for (int number=0; number < 10; number++){
+        for (int number=0; number < n; number++){
             
-            if (isMultiple3or5(number) == true) {
+            if ( isMultiple3or5(number) == true) {
                 
                 multiples_of_3_or_5.add(number);
                 sum_multiples_of_3_or_5+=number;
@@ -19,22 +19,20 @@ Class Problem1 {
   
         }
         
-        system.out.println(multiples_of_3_or_5.toString());
-        system.out.println(sum_multiples_of_3_or_5);
+        System.out.println(multiples_of_3_or_5.toString());
+        System.out.println(sum_multiples_of_3_or_5);
   
     }
     
     
-    Bool isMultiple3or5(number) {
+    static Boolean isMultiple3or5(int number) {
 
-        if ((number % 3) == 0 || (number % 5) == 0)){ 
-            return true
-        } else 
-
-            return false
+        if ( number % 3 == 0 || number % 5 == 0 ){ 
+            return true;
+        } else {
+            return false;
+        }
     }
 }
     
     
-    
-}
