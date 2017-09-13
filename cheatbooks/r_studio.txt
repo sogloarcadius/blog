@@ -1,0 +1,13 @@
+
+
+# clear console
+
+ctrl + L
+
+# clear env variables
+
+rm (list = ls())
+
+# change language
+
+sys.setenv(LANG="en")
