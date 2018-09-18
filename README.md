@@ -1,13 +1,17 @@
 # Notebooks
 
-Jupyter notebooks
+It contains my personal notes and presentations
 
-Reveal.js Presentations
+## Technologies 
 
-# Author
+* [Jupyter](http://jupyter.org/)
+
+* [Reveal.js](https://revealjs.com/)
+
+## Author
 
 Arcadius SOGLO
 
-# Licence
+## Licence
 
 MIT
