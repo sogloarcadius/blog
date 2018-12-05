@@ -1,12 +1,15 @@
 # Notebooks
 
-It contains my personal notes and presentations
+It contains my personal notes
 
 ## Technologies 
 
 * [Jupyter](http://jupyter.org/)
 
-* [Reveal.js](https://revealjs.com/)
+* [Markdown]()
+
+* [Tidly wiki]()
+
 
 ## Author
 
