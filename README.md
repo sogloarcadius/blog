@@ -4,11 +4,11 @@ It contains my personal notes
 
 ## Technologies 
 
-* [Jupyter](http://jupyter.org/)
+* [jupyter](http://jupyter.org/)
 
-* [Markdown]()
+* [markdown]()
 
-* [Tidly wiki]()
+* [tiddlywiki](https://tiddlywiki.com/)
 
 
 ## Author
