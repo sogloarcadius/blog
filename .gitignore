@@ -17,3 +17,7 @@ __pycache__/
 
 # Log file
 *.log
+
+
+# jupyter notebooks
+.ipynb_checkpoints/
