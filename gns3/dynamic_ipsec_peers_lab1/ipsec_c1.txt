@@ -1,10 +1,10 @@
 
-!=========================
-!       Config for C1
-!=========================
+!=============================================
+!      Dynamic Config for c1.sogloarcadius.com
+!==============================================
 
 
-access-list 100 remark ***** Link to C2 *****
+access-list 100 remark ***** Link to c2.sogloarcadius.com *****
 access-list 100 permit ip 10.1.1.0 0.0.0.255 10.1.2.0 0.0.0.255
 
 access-list 101 remark ***** NAT ACL ***** 
@@ -25,14 +25,26 @@ crypto isakmp policy 10
  lifetime 86400
 
 
-crypto isakmp key cisco123 address 8.8.11.2
+crypto isakmp key cisco123 address 0.0.0.0 0.0.0.0
+crypto isakmp key cisco123 hostname c2.sogloarcadius.com
 
 crypto ipsec transform-set myset esp-3des esp-md5-hmac
  mode tunnel
 
-crypto map mymap 1 ipsec-isakmp
- description ***** Link to C2 *****
- set peer 8.8.11.2
+crypto dynamic-map dynmap 120
+ description ***** Dynamic Map to c2.sogloarcadius.com *****
+ set transform-set myset
+ set pfs group2
+ match address 100
+ set security-association lifetime seconds 86400
+ set security-association lifetime kilobytes 4608000
+
+
+crypto map mymap 130 ipsec-isakmp dynamic dynmap
+
+crypto map mymap 110 ipsec-isakmp
+ description ***** Static VPN MAP to c2.sogloarcadius.com *****
+ set peer c2.sogloarcadius.com
  set transform-set myset
  set pfs group2
  match address 100
