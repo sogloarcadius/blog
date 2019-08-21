@@ -1,0 +1,16 @@
+
+ifconfig em0 172.16.114.9 netmask 255.255.255.0
+
+route add -net 0.0.0.0/0 172.16.114.254
+
+
+# Enable SSH
+# FROM CLI enable sshd
+# whitelist ssh connection
+easyrule pass wan tcp any any 22
+
+
+
+# Access WebUI
+
+easyrule pass wan tcp any any 443

@@ -1,0 +1,149 @@
+## System preps
+
+yum upgrade
+yum install wget bash-completion bind-tools net-tools
+reboot
+yum install -y policycoreutils-python
+setsebool -P httpd_can_network_connect 1
+semanage port --list | grep -q 25672 || semanage port -a -t amqp_port_t -p tcp 25672
+yum -y install epel-release
+rpm --import https://www.mongodb.org/static/pgp/server-3.4.asc
+
+# display $releasever vars
+# python -c 'import yum, pprint; yb = yum.YumBase(); pprint.pprint(yb.conf.yumvar, width=1)'
+
+sh -c "cat <<EOT > /etc/yum.repos.d/mongodb-org-3.4.repo
+[mongodb-org-3.4]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
+EOT"
+
+yum -y install mongodb-org
+yum -y install rabbitmq-server
+systemctl start mongod rabbitmq-server
+systemctl enable mongod rabbitmq-server
+yum -y install postgresql-server postgresql-contrib postgresql-devel
+postgresql-setup initdb
+sed -i "s/\(host.*all.*all.*127.0.0.1\/32.*\)ident/\1md5/" /var/lib/pgsql/data/pg_hba.conf
+sed -i "s/\(host.*all.*all.*::1\/128.*\)ident/\1md5/" /var/lib/pgsql/data/pg_hba.conf
+systemctl start postgresql
+systemctl enable postgresql
+
+
+## Stackstorm install
+curl -s https://packagecloud.io/install/repositories/StackStorm/stable/script.rpm.sh | sudo bash
+yum install -y st2 st2mistral
+
+DATASTORE_ENCRYPTION_KEYS_DIRECTORY="/etc/st2/keys"
+DATASTORE_ENCRYPTION_KEY_PATH="${DATASTORE_ENCRYPTION_KEYS_DIRECTORY}/datastore_key.json"
+
+mkdir -p ${DATASTORE_ENCRYPTION_KEYS_DIRECTORY}
+st2-generate-symmetric-crypto-key --key-path ${DATASTORE_ENCRYPTION_KEY_PATH}
+
+# Make sure only st2 user can read the file
+chgrp st2 ${DATASTORE_ENCRYPTION_KEYS_DIRECTORY}
+chmod o-r ${DATASTORE_ENCRYPTION_KEYS_DIRECTORY}
+chgrp st2 ${DATASTORE_ENCRYPTION_KEY_PATH}
+chmod o-r ${DATASTORE_ENCRYPTION_KEY_PATH}
+
+yum -y install crudini
+# set path to the key file in the config
+crudini --set /etc/st2/st2.conf keyvalue encryption_key_path ${DATASTORE_ENCRYPTION_KEY_PATH}
+
+st2ctl restart-component st2api
+
+# Create Mistral DB in PostgreSQL
+cat << EHD | sudo -u postgres psql
+CREATE ROLE mistral WITH CREATEDB LOGIN ENCRYPTED PASSWORD 'StackStorm';
+CREATE DATABASE mistral OWNER mistral;
+EHD
+
+# Setup Mistral DB tables, etc.
+/opt/stackstorm/mistral/bin/mistral-db-manage --config-file /etc/mistral/mistral.conf upgrade head
+# Register mistral actions
+/opt/stackstorm/mistral/bin/mistral-db-manage --config-file /etc/mistral/mistral.conf populate | grep -v -e openstack -e keystone
+
+
+# Create an SSH system user (default `stanley` user may already exist)
+sudo useradd stanley
+sudo mkdir -p /home/stanley/.ssh
+sudo chmod 0700 /home/stanley/.ssh
+
+# Generate ssh keys
+sudo ssh-keygen -f /home/stanley/.ssh/stanley_rsa -P ""
+
+# Authorize key-based access
+sudo sh -c 'cat /home/stanley/.ssh/stanley_rsa.pub >> /home/stanley/.ssh/authorized_keys'
+sudo chown -R stanley:stanley /home/stanley/.ssh
+
+# Enable passwordless sudo
+sudo sh -c 'echo "stanley    ALL=(ALL)       NOPASSWD: SETENV: ALL" >> /etc/sudoers.d/st2'
+sudo chmod 0440 /etc/sudoers.d/st2
+
+# Make sure `Defaults requiretty` is disabled in `/etc/sudoers`
+sudo sed -i -r "s/^Defaults\s+\+?requiretty/# Defaults +requiretty/g" /etc/sudoers
+
+### start services
+st2ctl start
+
+### load configuration
+st2ctl reload
+
+### Auth
+yum -y install httpd-tools
+echo 'P@ssw0rd' | sudo htpasswd -i /etc/st2/htpasswd st2admin
+
+###vi /etc/st2/st2.conf >>> make the following change
+enable = True
+###
+
+st2ctl restart-component st2api
+st2 auth st2admin
+export ST2_AUTH_TOKEN=$(st2 auth st2admin -p 'P@ssw0rd' -t)
+st2 action list
+## verify
+
+st2 --version
+
+st2 -h
+
+# List the actions from a 'core' pack
+st2 action list --pack=core
+
+# Run a local shell command
+st2 run core.local -- date -R
+
+# See the execution results
+st2 execution list
+
+# Fire a remote comand via SSH (Requires passwordless SSH)
+st2 run core.remote hosts='localhost' -- uname -a
+
+# Install a pack
+st2 pack install st2
+
+###Web UI  --!!!! you !!update nginx repo for rhel !!!--
+rpm --import http://nginx.org/keys/nginx_signing.key
+
+###Create the following file with bellow lines /etc/yum.repos.d/nginx.repo
+[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/centos/7/$basearch/
+gpgcheck=1
+enabled=1
+EOT
+
+### install nginx 
+
+yum --disablerepo='epel' install -y nginx
+yum install -y st2web
+mkdir -p /etc/ssl/st2
+openssl req -x509 -newkey rsa:2048 -keyout /etc/ssl/st2/st2.key -out /etc/ssl/st2/st2.crt -days 365 -nodes -subj "/C=US/ST=California/L=Palo Alto/O=StackStorm/OU=Information \
+Technology/CN=$(hostname)"
+cp /usr/share/doc/st2/conf/nginx/st2.conf /etc/nginx/conf.d/
+sed -i 's/default_server//g' /etc/nginx/nginx.conf
+systemctl restart nginx
+systemctl enable nginx

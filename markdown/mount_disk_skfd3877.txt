@@ -1,0 +1,8 @@
+
+
+Click droit sur Réseau -> Connecter un lecteur réseau
+
+\\OPNASNASMONP04A\SKFD3877\
+
+
+

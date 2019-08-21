@@ -1,0 +1,56 @@
+
+#########################
+# Authentication
+#########################
+
+st2 login st2admin --password password --write-password
+export ST2_AUTH_TOKEN=`st2 auth -t -p 'password' st2admin`
+export ST2_API_KEY=` st2 apikey create -k -m '{"used_by": "chatops"}' `
+
+#sudo
+sudo st2 login st2admin --password password --write-password
+export ST2_AUTH_TOKEN=`sudo st2 auth -t -p 'password' st2admin`
+export ST2_API_KEY=` sudo st2 apikey create -k -m '{"used_by": "chatops"}' `
+
+echo $ST2_AUTH_TOKEN
+echo $ST2_API_KEY
+
+#########################
+# Admin commands
+#########################
+
+sudo st2ctl reload --register-all
+sudo st2ctl reload --register-configs
+sudo st2ctl reload --register-aliases
+
+
+#chatops
+sudo st2ctl reload
+sudo systemctl restart st2chatops
+sudo systemctl restart st2api
+
+#logs
+journalctl --unit=st2chatops
+journalctl --unit=st2chatops -n 100 --no-pager
+
+#########################
+# key value store
+#########################
+
+st2 key list
+st2 key set ansible_git_url <>
+st2 key set ansible_git_url <>
+st2 key load store.yml
+
+##########
+# ST2 Client
+######
+
+#xpertlab
+export ST2_BASE_URL=https://172.16.114.1
+export ST2_API_URL=https://172.16.114.1/api
+export ST2_API_KEY=MWVkZWEyZjJmZjgwMmQ4Y2Q3YTdhMTEyZWFiNjdkOWNhNjY2MmM4YjcyMzhmMzAyNDQ4MGFiMGIzM2M0NGRlMw
+
+
+## Install nfvis pack
+st2 pack install http://sogloarcadius:q8pVC6pcY8HEL7x9@172.16.151.120/st2/stackstorm-nfvis.git

@@ -1,0 +1,23 @@
+
+
+tower-manage inventory_import --source=/mnt/nas/asoglo/ansible/hosts.yml --inventory-name=hosts.yml
+
+ansible-tower-service restart
+
+
+### uninstall tower
+
+sudo ansible-tower-service stop
+
+sudo yum remove ansible-tower
+
+rpm -qa | grep ansible-tower
+
+sudo yum remove x y z ...
+
+yum remove rabbitmq-server
+
+sudo rm -rf /var/lib/pgsql
+sudo rm -rf /etc/tower
+sudo rm -rf /var/lib/awx
+sudo rm -rf /var/lib/rabbitmq

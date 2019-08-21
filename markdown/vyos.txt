@@ -1,0 +1,11 @@
+configure
+
+set interfaces ethernet eth1 address '192.168.0.1/24'
+set interfaces ethernet eth1 description 'INSIDE'
+
+set service ssh port '22'
+
+set system host-name <hostname>
+
+set system domain-name <domain>
+

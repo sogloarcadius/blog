@@ -1,0 +1,27 @@
+
+
+#############################
+#    Cisco IOS-XE
+###############################
+
+snmp-server contact arcadius.soglo@orange.com
+snmp-server location Rennes,France
+! Configure community (~ password in v1 and v2c)
+snmp-server community public ro
+snmp-server community private rw
+
+!show snmp 
+
+
+#############################
+#    Cisco NX-OS
+#############################
+
+snmp-server contact arcadius.soglo@orange.com
+snmp-server location  Rennes,France
+!default entry on device 
+!snmp-server user admin network-admin auth md5 0x077e51ab3c9a13b2656b8095298ed6e0 priv 0x077e51ab3c9a13b2656b8095298ed6e0 localizedkey
+! snmp community private rw converted to the below command
+snmp-server community private group network-admin
+! snmp community public ro converted to the below command
+snmp-server community public group network-operator
