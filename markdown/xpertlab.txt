@@ -1,0 +1,9 @@
+GITLAB : http://172.16.151.120
+
+
+NAS(nas.xpert-lab.local) : 172.16.0.200
+
+
+vsphere Paris (vcenter.xpert-lab.local) : 172.16.40.10
+
+vsphere Rennes () : 172.16.2.1
