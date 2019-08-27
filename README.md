@@ -8,4 +8,4 @@ Arcadius SOGLO
 
 ## Licence
 
-CC BY-NC-ND 
+CC BY-NC-ND

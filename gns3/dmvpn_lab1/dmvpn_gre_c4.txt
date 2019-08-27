@@ -1,0 +1,26 @@
+! Spoke router site 4
+
+interface Tunnel 111
+ description **** DMVPN GRE Tunnel ****
+ ip address 192.168.1.4 255.255.255.0
+ bandwidth 1000
+ delay 1000
+ ip nhrp holdtime 360
+ ip nhrp network-id 100000
+ ip nhrp authentication cisco
+ ip mtu 1400
+ ip tcp adjust-mss 1360
+ ip nhrp nhs 192.168.1.1
+ ip nhrp map multicast 8.8.3.2
+ ip nhrp map 192.168.1.1 8.8.3.2
+ tunnel source g0/0
+ tunnel mode gre multipoint 
+ tunnel key 100000
+!
+
+router eigrp 100
+ network 192.168.1.4 0.0.0.0
+ network 10.0.0.0 0.255.255.255
+ no auto-summary
+
+
