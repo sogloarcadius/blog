@@ -1,0 +1,62 @@
+
+!##############################
+! IP ADDRESSING
+!##############################
+
+
+interface GigabitEthernet0/0
+ ip address 192.1.50.5 255.255.255.0
+ no shutdown
+!
+
+interface Loopback0
+ ip address 10.5.5.5 255.255.255.0
+ no shutdown
+!
+
+ip route 0.0.0.0 0.0.0.0 192.1.50.6
+
+
+!##############################
+! TASK 1
+!##############################
+
+
+crypto ikev2 proposal PROP-15
+ encryption 3des aes-cbc-128
+ integrity md5 sha1
+ group 2 5
+
+crypto ikev2 policy POL-15
+ proposal PROP-15
+
+crypto ikev2 keyring KR-15
+ peer R5
+  address 192.1.10.1
+  pre-shared-key cisco123
+
+crypto ikev2 profile PROF-15
+ match identity remote address 192.1.10.1 255.255.255.255
+ authentication local pre-share
+ authentication remote pre-share
+ keyring local KR-15
+
+crypto ipsec transform-set TSET-15 esp-3des esp-md5-hmac
+
+crypto ipsec profile IPSEC-15
+ set transform-set TSET-15
+ set ikev2-profile PROF-15
+
+interface Tunnel1
+ ip address 192.168.15.5 255.255.255.0
+ tunnel source GigabitEthernet0/0
+ tunnel mode ipsec ipv4
+ tunnel destination 192.1.10.1
+ tunnel protection ipsec profile IPSEC-15
+!
+
+router eigrp 1
+ network 10.0.0.0
+ network 192.168.15.0
+
+
