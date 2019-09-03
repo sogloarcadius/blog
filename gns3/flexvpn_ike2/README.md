@@ -1,12 +1,9 @@
-## Description
-
-* Configure Hub & SPoke FlexVPN Topology
-
-## Reference
-
-[https://surajsoni39003.blogspot.com/2018/03/flex-vpn.html?view=sidebar](https://surajsoni39003.blogspot.com/2018/03/flex-vpn.html?view=sidebar)
+## Usefull commands
 
 
-## Useful Debug commands
 
-sh crypto ikev2 sa
+show crypto ikev2 sa
+
+show dmvpn detail
+
+clear crypto session

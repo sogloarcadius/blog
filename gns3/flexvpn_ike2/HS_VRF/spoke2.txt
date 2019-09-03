@@ -1,0 +1,120 @@
+!
+!
+aaa new-model
+!
+!
+aaa authentication login default local
+aaa authorization exec default local if-authenticated 
+aaa authorization network aaa-auth local 
+!
+!
+vrf definition BLUE
+ rd 65000:2
+ route-target import 65000:2
+ route-target export 65000:2
+ address-family ipv4
+ exit-address-family
+!
+vrf definition RED
+ rd 65000:4
+ route-target import 65000:4
+ route-target export 65000:4
+ address-family ipv4
+ exit-address-family
+!
+
+interface GigabitEthernet2
+ description *** Link to ISP *** 
+ ip address 8.8.50.5 255.255.255.0
+ no shutdown
+!
+interface Loopback501
+ description *** tunnel ip address ***
+ ip address 192.168.1.2 255.255.255.0
+!
+interface Loopback2
+ description *** SPOKE 2 VRF BLUE***
+ vrf forwarding BLUE
+ ip address 10.2.1.5 255.255.255.0
+!
+interface Loopback4
+ description *** SPOKE 2 VRF RED***
+ vrf forwarding RED
+ ip address 10.2.2.5 255.255.255.0
+!
+
+crypto ikev2 authorization policy auth-FLEXVPN  
+ route set interface
+!
+crypto ikev2 proposal prop-FLEXVPN  
+ encryption 3des aes-cbc-128
+ integrity md5 sha1
+ group 2 5
+!
+crypto ikev2 policy poli-FLEXVPN
+ match fvrf TRANSPORT
+ proposal prop-FLEXVPN 
+!
+crypto ikev2 keyring keys-FLEXVPN
+ peer ANY
+  address 0.0.0.0 0.0.0.0
+  pre-shared-key cisco123
+ !
+!
+!
+crypto ikev2 profile prof-FLEXVPN
+ match identity remote address 0.0.0.0 
+ authentication local pre-share
+ authentication remote pre-share
+ keyring local keys-FLEXVPN
+ aaa authorization group psk list aaa-auth auth-FLEXVPN
+ virtual-template 501
+!
+!
+crypto ipsec transform-set TSET esp-3des esp-md5-hmac 
+ mode tunnel
+!
+crypto ipsec profile ipsec-FLEXVPN
+ set transform-set TSET 
+ set ikev2-profile prof-FLEXVPN
+!
+interface Tunnel501
+ ip unnumbered Loopback501
+ ip nhrp network-id 501
+ ip nhrp shortcut virtual-template 501
+ mpls nhrp
+ tunnel source GigabitEthernet2
+ tunnel destination 8.8.10.1
+ tunnel protection ipsec profile ipsec-FLEXVPN
+!
+interface Virtual-Template 501 type tunnel
+ ip unnumbered Loopback501
+ ip nhrp network-id 501
+ ip nhrp shortcut virtual-template 501
+ mpls nhrp
+ tunnel source GigabitEthernet2
+ tunnel protection ipsec profile ipsec-FLEXVPN
+!
+! BGP underlay
+router bgp 65000
+ network 8.8.50.0 mask 255.255.255.0
+ neighbor 8.8.50.6 remote-as 65000
+!
+!BGP Overlay
+router bgp 65000
+ neighbor 192.168.1.254 remote-as 65000
+ neighbor 192.168.1.254 update-source Loopback501
+ address-family vpnv4
+  neighbor 192.168.1.254 activate
+  neighbor 192.168.1.254 send-community extended
+ exit-address-family
+ !
+ address-family ipv4 vrf BLUE
+  network 10.2.1.0 mask 255.255.255.0
+ exit-address-family
+ !
+ address-family ipv4 vrf RED
+  network 10.2.2.0 mask 255.255.255.0
+ exit-address-family
+!
+end

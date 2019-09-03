@@ -1,0 +1,90 @@
+
+!
+!
+aaa new-model
+!
+!
+aaa authentication login default local
+aaa authorization exec default local if-authenticated 
+aaa authorization network default local 
+!
+!
+crypto ikev2 authorization policy NHRP 
+ route set interface
+!
+crypto ikev2 proposal PROP 
+ encryption 3des aes-cbc-128
+ integrity md5 sha1
+ group 2 5
+!
+crypto ikev2 policy POL 
+ proposal PROP
+!
+crypto ikev2 keyring KR
+ peer ANY
+  address 0.0.0.0 0.0.0.0
+  pre-shared-key cisco123
+ !
+!
+!
+crypto ikev2 profile PROF
+ match identity remote address 0.0.0.0 
+ authentication local pre-share
+ authentication remote pre-share
+ keyring local KR
+ aaa authorization group psk list default NHRP
+ virtual-template 1
+!
+!
+crypto ipsec transform-set TSET esp-3des esp-md5-hmac 
+ mode tunnel
+!
+crypto ipsec profile IPSEC
+ set transform-set TSET 
+ set ikev2-profile PROF
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.2.2.2 255.255.255.0
+!
+interface Tunnel42
+ ip address negotiated
+ ip nhrp network-id 42
+ ip nhrp shortcut virtual-template 1
+ tunnel source GigabitEthernet2
+ tunnel destination 192.1.10.1
+ tunnel protection ipsec profile IPSEC
+!
+interface GigabitEthernet1
+ ip address 172.16.21.241 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet2
+ ip address 192.1.20.2 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface Virtual-Template1 type tunnel
+ ip unnumbered Tunnel42
+ ip nhrp network-id 42
+ ip nhrp shortcut virtual-template 1
+ tunnel source GigabitEthernet2
+ tunnel protection ipsec profile IPSEC
+!
+!
+router eigrp 1
+ network 10.0.0.0
+ network 192.168.1.0
+!
+router bgp 65000
+ bgp log-neighbor-changes
+ network 192.1.20.0
+ neighbor 192.1.20.6 remote-as 65000
+!
+!
+end
