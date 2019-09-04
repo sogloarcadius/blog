@@ -40,10 +40,11 @@ interface Loopback501
  description *** Tunnel ip address ***
  ip address 192.168.1.254 255.255.255.0
 !
-
+ip local pool FLEX 192.168.1.1 192.168.1.253
+!
 crypto ikev2 authorization policy auth-FLEXVPN 
+ pool FLEX
  route set interface
-
 !
 crypto ikev2 proposal prop-FLEXVPN 
  encryption 3des aes-cbc-128
@@ -102,10 +103,12 @@ router bgp 65000
  neighbor spokes peer-group
  neighbor spokes remote-as 65000
  neighbor spokes update-source Loopback501
+ neighbor spokes soft-reconfiguration inbound
 !
  address-family vpnv4
   neighbor spokes activate
   neighbor spokes send-community extended
+  neighbor spokes route-reflector-client
  exit-address-family
  !
  address-family ipv4 vrf BLUE

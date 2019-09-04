@@ -48,9 +48,6 @@ crypto ipsec profile IPSEC
  set ikev2-profile PROF
 !
 !
-!
-!
-!
 interface Loopback0
  ip address 10.1.1.1 255.255.255.0
 !

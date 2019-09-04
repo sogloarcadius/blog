@@ -30,10 +30,6 @@ interface GigabitEthernet2
  ip address 8.8.30.3 255.255.255.0
  no shutdown
 !
-interface Loopback501
- description *** tunnel ip address ***
- ip address 192.168.1.3 255.255.255.0
-!
 interface Loopback2
  description *** SPOKE 3 VRF BLUE***
  vrf forwarding BLUE
@@ -54,7 +50,6 @@ crypto ikev2 proposal prop-FLEXVPN
  group 2 5
 !
 crypto ikev2 policy poli-FLEXVPN
- match fvrf TRANSPORT
  proposal prop-FLEXVPN 
 !
 crypto ikev2 keyring keys-FLEXVPN
@@ -81,7 +76,7 @@ crypto ipsec profile ipsec-FLEXVPN
  set ikev2-profile prof-FLEXVPN
 !
 interface Tunnel501
- ip unnumbered Loopback501
+ ip address negotiated
  ip nhrp network-id 501
  ip nhrp shortcut virtual-template 501
  mpls nhrp
@@ -90,7 +85,7 @@ interface Tunnel501
  tunnel protection ipsec profile ipsec-FLEXVPN
 !
 interface Virtual-Template 501 type tunnel
- ip unnumbered Loopback501
+ ip unnumbered Tunnel501
  ip nhrp network-id 501
  ip nhrp shortcut virtual-template 501
  mpls nhrp
@@ -104,10 +99,12 @@ router bgp 65000
 !
 router bgp 65000
  neighbor 192.168.1.254 remote-as 65000
- neighbor 192.168.1.254 update-source Loopback501
+ neighbor 192.168.1.254 update-source Tunnel501
+ neighbor 192.168.1.254 soft-reconfiguration inbound
  address-family vpnv4
   neighbor 192.168.1.254 activate
   neighbor 192.168.1.254 send-community extended
+  neighbor 192.168.1.254 prefix-list ACL out
  exit-address-family
  !
  address-family ipv4 vrf BLUE
@@ -118,4 +115,5 @@ router bgp 65000
   network 10.3.2.0 mask 255.255.255.0
  exit-address-family
 !
+ip prefix-list PFL deny 8.8.30.0/24
 end
