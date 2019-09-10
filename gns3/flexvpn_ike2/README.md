@@ -11,11 +11,11 @@ VRF AWARE FLEX VPN
 ## Usefull commands
 
 
-show crypto ikev2 sa
+* show crypto ikev2 sa
 
-show dmvpn detail
+* show dmvpn detail
 
-clear crypto session
+* clear crypto session
 
-show mpls forwading-table
+* show mpls forwading-table
 

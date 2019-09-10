@@ -17,7 +17,7 @@ Redistribute MP-BGP into OSPF on R3
 
 ## Usefull commands
 
-trace 6.6.6.6
-sh ip route
-sh ip route vrf RED
-sh ip bgp vpnv4 vrf RED
+* trace 6.6.6.6
+* sh ip route
+* sh ip route vrf RED
+* sh ip bgp vpnv4 vrf RED

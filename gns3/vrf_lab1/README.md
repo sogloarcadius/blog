@@ -18,10 +18,10 @@ http://www.i3s.unice.fr/~sassatelli/M3102/TP5_VRF_etudiants.pdf
 
 ## Useful Debug commands
 
-sh ip vrf
+* sh ip vrf
 
-sh ip route vrf CUST1
+* sh ip route vrf CUST1
 
-ping vrf CUST1 192.168.1.1
+* ping vrf CUST1 192.168.1.1
 
-clear ip ospf process
+* clear ip ospf process

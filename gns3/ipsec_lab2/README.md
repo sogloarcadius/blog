@@ -10,4 +10,4 @@ Configure an IPSec Tunnel between C1 and C2 using the fully qualified names so t
 
 ## Usefull commands
 
-show crypto ipsec sa
+* show crypto ipsec sa
