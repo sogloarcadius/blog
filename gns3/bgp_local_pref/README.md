@@ -7,10 +7,13 @@ Local Preference is BGP Well known discretionnary attribute.
 
 ### Usefull Commands
 
-* show ip bgp
-* show ip bgp _100_ : going through AS 100
-* show ip bgp regexp ^100$ : filter routes directly connected to 100
-* show ip bgp regexp ^$ : filter only networks originated in local AS
-* show ip bgp regexp _4$  : filter routes originated in AS 4
-* show ip bgp regexp ^100_. : networks behind AS 100
-* show ip bgp .* : all networks
+* *show ip bgp*
+* *show ip bgp* \_100\_ : **going through AS 100**
+* *show ip bgp regexp ^100$* : **filter routes directly connected to 100**
+* *show ip bgp regexp ^$* : **filter only networks originated in local AS**
+* *show ip bgp regexp _4$*  : **filter routes originated in AS 4**
+* *show ip bgp regexp ^100_.* : **networks behind AS 100**
+* *show ip bgp .** : **all networks**
+
+* clear ip bgp *
+* sh ip bgp neighbors <@IPneighbor> advertised-routes
