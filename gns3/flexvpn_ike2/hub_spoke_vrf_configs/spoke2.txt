@@ -115,6 +115,6 @@ router bgp 65000
   network 10.2.2.0 mask 255.255.255.0
  exit-address-family
 !
-ip prefix-list PFL deny 8.8.50.0/24
+ip prefix-list ACL deny 8.8.50.0/24
 !
 end

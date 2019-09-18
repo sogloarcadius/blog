@@ -119,4 +119,4 @@ router bgp 65000
 !  
 !
 
-ip prefix-list PFL deny 8.8.20.0/24 
+ip prefix-list ACL deny 8.8.20.0/24 
