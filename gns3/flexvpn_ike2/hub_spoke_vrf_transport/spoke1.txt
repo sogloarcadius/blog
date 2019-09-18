@@ -1,0 +1,62 @@
+!
+!
+aaa new-model
+!
+!
+aaa authentication login default local
+aaa authorization exec default local if-authenticated 
+aaa authorization network aaa-auth local 
+!
+!
+vrf definition TRANSPORT
+ rd 65000:1
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition BLUE
+ rd 65000:2
+ route-target import 65000:2
+ route-target export 65000:2
+ address-family ipv4
+ exit-address-family
+!
+vrf definition RED
+ rd 65000:4
+ route-target import 65000:4
+ route-target export 65000:4
+ address-family ipv4
+ exit-address-family
+!
+
+interface GigabitEthernet2
+ description *** Link to ISP ***
+ vrf forwarding TRANSPORT  
+ ip address 8.8.20.2 255.255.255.0
+ no shutdown
+!
+interface Loopback1
+ vrf forwarding TRANSPORT 
+ ip address 2.2.2.2 255.255.255.255
+!
+interface Loopback2
+ description *** SPOKE 1 VRF BLUE***
+ vrf forwarding BLUE
+ ip address 10.1.1.2 255.255.255.0
+!
+interface Loopback4
+ description *** SPOKE 1 VRF RED***
+ vrf forwarding RED
+ ip address 10.1.2.1 255.255.255.0
+!
+
+router bgp 65000
+ no bgp default ipv4-unicast
+ !
+ address-family ipv4 vrf TRANSPORT
+  network 2.2.2.2 mask 255.255.255.255
+  network 8.8.20.0 mask 255.255.255.0
+  neighbor 8.8.20.6 remote-as 65000
+  neighbor 8.8.20.6 activate
+ exit-address-family
+!
