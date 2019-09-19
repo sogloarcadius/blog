@@ -60,3 +60,81 @@ router bgp 65000
   neighbor 8.8.20.6 activate
  exit-address-family
 !
+
+
+!!!!!!! FLEX VPN
+
+
+!
+crypto ikev2 authorization policy auth-FLEXVPN  
+ route set interface
+!
+crypto ikev2 proposal prop-FLEXVPN  
+ encryption 3des aes-cbc-128
+ integrity md5 sha1
+ group 2 5
+!
+crypto ikev2 policy poli-FLEXVPN
+ proposal prop-FLEXVPN 
+!
+crypto ikev2 keyring keys-FLEXVPN
+ peer ANY
+  address 0.0.0.0 0.0.0.0
+  pre-shared-key cisco123
+ !
+!
+!
+crypto ikev2 profile prof-FLEXVPN
+ match identity remote address 0.0.0.0 
+ authentication local pre-share
+ authentication remote pre-share
+ keyring local keys-FLEXVPN
+ aaa authorization group psk list aaa-auth auth-FLEXVPN
+ virtual-template 501
+!
+!
+crypto ipsec transform-set TSET esp-3des esp-md5-hmac 
+ mode tunnel
+!
+crypto ipsec profile ipsec-FLEXVPN
+ set transform-set TSET 
+ set ikev2-profile prof-FLEXVPN
+!
+interface Tunnel192
+ ip address 192.168.1.1 255.255.255.0
+ ip nhrp network-id 192
+ ip nhrp shortcut virtual-template 1
+ mpls nhrp
+ tunnel source Loopback1
+ tunnel vrf TRANSPORT
+ tunnel destination 1.1.1.1
+ tunnel protection ipsec profile ipsec-FLEXVPN
+!
+interface Virtual-Template 1 type tunnel
+ ip unnumbered Tunnel192
+ ip nhrp network-id 192
+ ip nhrp shortcut virtual-template 1
+ mpls nhrp
+ tunnel key 192
+ tunnel source Loopback1
+ tunnel vrf TRANSPORT
+ tunnel protection ipsec profile ipsec-FLEXVPN
+!
+
+router bgp 65000
+ neighbor 192.168.1.254 remote-as 65000
+ neighbor 192.168.1.254 update-source Tunnel192
+ !
+ address-family vpnv4
+  neighbor 192.168.1.254 activate
+  neighbor 192.168.1.254 send-community
+ exit-address-family
+ !
+ address-family ipv4 vrf BLUE
+  network 10.1.1.0 mask 255.255.255.0
+ exit-address-family
+ !
+ address-family ipv4 vrf RED
+  network 10.1.2.0 mask 255.255.255.0
+ exit-address-family
+!  

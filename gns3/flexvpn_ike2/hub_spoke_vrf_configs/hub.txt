@@ -1,5 +1,4 @@
 
-
 !
 aaa new-model
 !
@@ -23,7 +22,6 @@ vrf definition RED
  address-family ipv4
  exit-address-family
 !
-
 vrf definition YELLOW
  rd 65000:3
  route-target import 65000:3
@@ -115,7 +113,6 @@ router bgp 65000
    network 10.0.0.0 mask 255.0.0.0
  exit-address-family
  !
-
  address-family ipv4 vrf RED
    network 10.0.0.0 mask 255.0.0.0
  exit-address-family 
@@ -124,7 +121,6 @@ router bgp 65000
    network 10.0.0.0 mask 255.0.0.0
  exit-address-family
 !
-
 ip route vrf BLUE 10.0.0.0 255.0.0.0 Null0
 ip route vrf RED 10.0.0.0 255.0.0.0 Null0
 ip route vrf YELLOW 10.0.0.0 255.0.0.0 Null0

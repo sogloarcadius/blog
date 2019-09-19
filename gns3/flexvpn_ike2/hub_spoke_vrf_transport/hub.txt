@@ -57,3 +57,84 @@ router bgp 65000
   neighbor 8.8.10.6 activate
  exit-address-family
 !
+
+
+!!!!!! FLEX VPN
+
+
+interface Loopback192
+ description *** Tunnel ip address ***
+ ip address 192.168.1.254 255.255.255.0
+!
+crypto ikev2 authorization policy auth-FLEXVPN 
+ route set interface
+!
+crypto ikev2 proposal prop-FLEXVPN 
+ encryption 3des aes-cbc-128
+ integrity md5 sha1
+ group 2 5
+!
+
+crypto ikev2 policy poli-FLEXVPN
+ match fvrf TRANSPORT
+ proposal prop-FLEXVPN 
+!
+
+crypto ikev2 keyring keys-FLEXVPN
+ peer ANY
+  address 0.0.0.0 0.0.0.0
+  pre-shared-key cisco123
+ !
+!
+!
+crypto ikev2 profile prof-FLEXVPN
+ match fvrf TRANSPORT
+ match identity remote address 0.0.0.0 
+ authentication local pre-share
+ authentication remote pre-share
+ keyring local keys-FLEXVPN
+ aaa authorization group psk list aaa-auth auth-FLEXVPN
+ virtual-template 1
+!
+!
+!
+crypto ipsec transform-set TSET esp-3des esp-md5-hmac 
+ mode tunnel
+!
+crypto ipsec profile ipsec-FLEXVPN
+ set transform-set TSET 
+ set ikev2-profile prof-FLEXVPN
+!
+interface Virtual-Template 1 type tunnel
+ ip unnumbered Loopback192
+ ip nhrp network-id 192
+ ip nhrp redirect
+ mpls nhrp
+ tunnel key 192
+ tunnel source Loopback1
+ tunnel vrf TRANSPORT
+ tunnel protection ipsec profile ipsec-FLEXVPN
+!
+!
+!
+router bgp 65000
+ bgp listen range 192.168.1.0/24 peer-group flexvpn-spokes
+ neighbor flexvpn-spokes peer-group
+ neighbor flexvpn-spokes remote-as 65000
+ neighbor flexvpn-spokes update-source Loopback192
+ !
+ address-family vpnv4
+  neighbor flexvpn-spokes activate
+  neighbor flexvpn-spokes send-community
+  neighbor flexvpn-spokes route-reflector-client
+ exit-address-family
+
+ address-family ipv4 vrf BLUE
+ exit-address-family
+ !
+ address-family ipv4 vrf RED
+ exit-address-family 
+ !
+ address-family ipv4 vrf YELLOW
+ exit-address-family
+!
