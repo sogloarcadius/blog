@@ -46,6 +46,7 @@ interface Loopback1
 
 router bgp 65000
  no bgp default ipv4-unicast
+ bgp router-id 6.6.6.6
  !
  address-family ipv4 vrf TRANSPORT
   network 6.6.6.6 mask 255.255.255.255

@@ -49,9 +49,11 @@ interface Loopback1
 
 router bgp 65000
  no bgp default ipv4-unicast
+ bgp router-id 1.1.1.1
  !
  address-family ipv4 vrf TRANSPORT
   network 1.1.1.1 mask 255.255.255.255
+  redistribute connected
   network 8.8.10.0 mask 255.255.255.0
   neighbor 8.8.10.6 remote-as 65000
   neighbor 8.8.10.6 activate
@@ -64,7 +66,7 @@ router bgp 65000
 
 interface Loopback192
  description *** Tunnel ip address ***
- ip address 192.168.1.254 255.255.255.0
+ ip address 192.168.1.254 255.255.255.255
 !
 crypto ikev2 authorization policy auth-FLEXVPN 
  route set interface
@@ -120,21 +122,29 @@ interface Virtual-Template 1 type tunnel
 router bgp 65000
  bgp listen range 192.168.1.0/24 peer-group flexvpn-spokes
  neighbor flexvpn-spokes peer-group
- neighbor flexvpn-spokes remote-as 65000
+ neighbor flexvpn-spokes remote-as 65442
+ neighbor flexvpn-spokes local-as 65442
  neighbor flexvpn-spokes update-source Loopback192
  !
  address-family vpnv4
   neighbor flexvpn-spokes activate
   neighbor flexvpn-spokes send-community
   neighbor flexvpn-spokes route-reflector-client
- exit-address-family
-
- address-family ipv4 vrf BLUE
+  neighbor flexvpn-spokes next-hop-self all
  exit-address-family
  !
- address-family ipv4 vrf RED
- exit-address-family 
+ !address-family ipv4 vrf BLUE
+ !   network 10.0.0.0 mask 255.0.0.0
+ !exit-address-family
  !
- address-family ipv4 vrf YELLOW
- exit-address-family
+ !address-family ipv4 vrf RED
+ !   network 10.0.0.0 mask 255.0.0.0
+ !exit-address-family 
+ !
+ !address-family ipv4 vrf YELLOW
+ !   network 10.0.0.0 mask 255.0.0.0
+ !exit-address-family
 !
+! ip route vrf BLUE 10.0.0.0 255.0.0.0 Null0
+! ip route vrf RED 10.0.0.0 255.0.0.0 Null0
+! ip route vrf YELLOW 10.0.0.0 255.0.0.0 Null0

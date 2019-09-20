@@ -50,6 +50,7 @@ interface Loopback4
 !
 
 router bgp 65000
+ bgp router-id 5.5.5.5
  no bgp default ipv4-unicast
  !
  address-family ipv4 vrf TRANSPORT
@@ -102,10 +103,11 @@ crypto ipsec profile ipsec-FLEXVPN
  set ikev2-profile prof-FLEXVPN
 !
 interface Tunnel192
- ip address 192.168.1.2 255.255.255.0
+ ip address 192.168.1.2 255.255.255.255
  ip nhrp network-id 192
  ip nhrp shortcut virtual-template 1
  mpls nhrp
+ tunnel key 192
  tunnel source Loopback1
  tunnel vrf TRANSPORT
  tunnel destination 1.1.1.1
@@ -123,7 +125,8 @@ interface Virtual-Template 1 type tunnel
 !
 
 router bgp 65000
- neighbor 192.168.1.254 remote-as 65000
+ neighbor 192.168.1.254 remote-as 65442
+ neighbor 192.168.1.254 local-as 65442
  neighbor 192.168.1.254 update-source Tunnel192
  !
  address-family vpnv4
