@@ -1,6 +1,8 @@
-# Notebooks
+# Blog
 
-It contains my personal notes
+My personal blog using static site generators
+
+Currently using [Hugo](https://gohugo.io/) to build and nginx to serve it on my server.
 
 ## Author
 
