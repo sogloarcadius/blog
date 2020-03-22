@@ -230,7 +230,7 @@ pre {
   width: 100%;
   top: 0;
   left: 0;
-  background: var(--primary-color);
+  /*background: var(--primary-color);*/
   opacity: .8;
 }
 
@@ -424,7 +424,9 @@ header.sticky-top {
 
 .lang-list {
   background: transparent;
-  color: var(--white-color);
+  /*color: var(--white-color);*/
+  color: var(--text-color-dark);
+
 }
 
 .lang-list.dark {

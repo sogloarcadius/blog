@@ -25,6 +25,7 @@ logo_white = ""
 # when logo is empty, it will shown your site title
 
 # customize color
+primary_color = "#03A9F4"
 body_color = "#f9f9f9"
 text_color = "#636363"
 text_color_dark = "#242738"
@@ -34,6 +35,8 @@ light_color = "#f8f9fa"
 # font family
 font_family = "lato" # Choose font family from : https://fonts.google.com/
 
+# call to action is default enabled
+enable = false
 
 ############################## social links ##############################
 [[params.social]]
@@ -54,7 +57,7 @@ languageName = "En"
 languageCode = "en-us"
 weight = 1
 home = "Home"
-copyright = " © 2020"
+copyright = " © sogloarcadius"
 
 # banner
 [Languages.en.params.banner]
@@ -71,7 +74,7 @@ languageName = "Fr"
 languageCode = "fr-fr"
 weight = 2
 home = "Accueil"
-copyright = "© 2020."
+copyright = " © sogloarcadius"
 
 # banner
 [Languages.fr.params.banner]
