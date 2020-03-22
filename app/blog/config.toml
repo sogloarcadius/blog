@@ -1,0 +1,81 @@
+################################# Default configuration ###################
+# provide your domain here
+baseURL = "https://examplesite.com/"
+# theme
+theme = "dot"
+# site title
+title = "Knowledge base"
+# disable language
+disableLanguages = []
+
+[markup.goldmark.renderer]
+unsafe = true
+
+################################# navigation ################################
+
+
+
+
+############################# Default Parameters ##########################
+[params]
+# logo is for all page
+logo = ""
+# logo white is for homepage logo, you can use colorful logo too...
+logo_white = ""
+# when logo is empty, it will shown your site title
+
+# customize color
+body_color = "#f9f9f9"
+text_color = "#636363"
+text_color_dark = "#242738"
+white_color = "#ffffff"
+light_color = "#f8f9fa"
+
+# font family
+font_family = "lato" # Choose font family from : https://fonts.google.com/
+
+
+############################## social links ##############################
+[[params.social]]
+icon = "ti-facebook" # themify icon pack : https://themify.me/themify-icons
+link = "#"
+
+[[params.social]]
+icon = "ti-twitter-alt" # themify icon pack : https://themify.me/themify-icons
+link = "#"
+  
+[[params.social]]
+icon = "ti-linkedin" # themify icon pack : https://themify.me/themify-icons
+link = "#"
+
+################################ English Language ######################
+[Languages.en]
+languageName = "En"
+languageCode = "en-us"
+weight = 1
+home = "Home"
+copyright = " © 2020"
+
+# banner
+[Languages.en.params.banner]
+title = "Knowledge base"
+subtitle = "Find all my content published"
+bg_image = "images/chart.png"
+placeholder = "Search content"
+
+
+
+################################### French Language ######################
+[Languages.fr]
+languageName = "Fr"
+languageCode = "fr-fr"
+weight = 2
+home = "Accueil"
+copyright = "© 2020."
+
+# banner
+[Languages.fr.params.banner]
+title = "Base de connaissance"
+subtitle = "Tout mes contenus publiés sont accessible depuis ici"
+bg_image = "images/chart.png"
+placeholder = "Chercher par mots clés"
