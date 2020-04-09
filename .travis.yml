@@ -1,3 +1,4 @@
+---
 dist: trusty
 language: go
 install: go get github.com/gohugoio/hugo
