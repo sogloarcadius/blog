@@ -1,12 +1,14 @@
 ################################# Default configuration ###################
 # provide your domain here
-baseURL = "https://examplesite.com/"
+baseURL = "https://sogloarcadius.github.io/blog"
 # theme
 theme = "dot"
 # site title
-title = "Knowledge base"
+title = "Blog"
 # disable language
 disableLanguages = []
+
+publishdir = "public"
 
 [markup.goldmark.renderer]
 unsafe = true
@@ -41,28 +43,28 @@ enable = false
 ############################## social links ##############################
 [[params.social]]
 icon = "ti-facebook" # themify icon pack : https://themify.me/themify-icons
-link = "#"
+link = "https://www.facebook.com/sogloarcadius"
 
 [[params.social]]
 icon = "ti-twitter-alt" # themify icon pack : https://themify.me/themify-icons
-link = "#"
+link = "https://twitter.com/sogloarcadius"
   
 [[params.social]]
 icon = "ti-linkedin" # themify icon pack : https://themify.me/themify-icons
-link = "#"
+link = "https://www.linkedin.com/in/arcadius-soglo-275bb180/"
 
 ################################ English Language ######################
 [Languages.en]
 languageName = "En"
 languageCode = "en-us"
-weight = 1
+weight = 2
 home = "Home"
 copyright = " © sogloarcadius"
 
 # banner
 [Languages.en.params.banner]
-title = "Knowledge base"
-subtitle = "Find all my content published"
+title = "Blog"
+subtitle = "Find all my content published using key words"
 bg_image = "images/chart.png"
 placeholder = "Search content"
 
@@ -72,13 +74,13 @@ placeholder = "Search content"
 [Languages.fr]
 languageName = "Fr"
 languageCode = "fr-fr"
-weight = 2
+weight = 1
 home = "Accueil"
 copyright = " © sogloarcadius"
 
 # banner
 [Languages.fr.params.banner]
-title = "Base de connaissance"
-subtitle = "Tout mes contenus publiés sont accessible depuis ici"
+title = "Blog"
+subtitle = "Rechercher mes contenus publiés par mots clés"
 bg_image = "images/chart.png"
 placeholder = "Chercher par mots clés"
