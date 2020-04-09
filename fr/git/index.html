@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+  <head>
+  <meta charset="utf-8">
+  <title>Git</title>
+
+  <meta name="generator" content="Hugo 0.68.1" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/bootstrap/bootstrap.min.css">
+
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/themify-icons/themify-icons.css">
+
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/highlight/hybrid.css">
+
+  <!--Favicon-->
+  <link rel="icon" href="https://sogloarcadius.github.io/blog/images/favicon.png" type="image/x-icon">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+  
+  <style>
+  :root{
+    --primary-color:#03A9F4;
+    --body-color:#f9f9f9;
+    --text-color:#636363;
+    --text-color-dark:#242738;
+    --white-color:#ffffff;
+    --light-color:#f8f9fa;
+    --font-family:Lato;
+  }
+  </style>
+
+<!-- Main Stylesheet -->
+
+<link rel="stylesheet" href="https://sogloarcadius.github.io/blog/css/style.min.css" media="screen">
+
+<!-- jquiry -->
+<script src="https://sogloarcadius.github.io/blog/plugins/jquery/jquery-1.12.4.js"></script>
+
+<!-- jquary ui -->
+<script src="https://sogloarcadius.github.io/blog/plugins/jquery/jquery-ui.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://sogloarcadius.github.io/blog/plugins/bootstrap/bootstrap.min.js"></script>
+
+<!-- match-height JS -->
+<script src="https://sogloarcadius.github.io/blog/plugins/match-height/jquery.matchHeight-min.js"></script>
+
+<!-- highlight -->
+<script src="https://sogloarcadius.github.io/blog/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+  
+  <body>
+    
+    <!-- header -->
+    <header class="shadow-bottom sticky-top bg-white">
+      <nav class="navbar navbar-expand-md navbar-light">
+  <div class="container">
+    <a class="navbar-brand px-2" href="/blog/fr">
+      
+      
+      
+      Blog
+      
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/blog/fr">Accueil</a>
+        </li>
+        
+      </ul>
+      
+      <select class="lang-list dark" id="select-language"
+        onchange="location = this.value;">
+        
+        
+        
+        
+        
+        
+        
+        
+        <option id="fr" value="https://sogloarcadius.github.io/blog/fr/git/" selected>Fr
+        </option>
+        
+        
+        
+        
+        
+        
+      </select>
+      
+    </div>
+  </div>
+</nav>
+    </header>
+    <!-- /header -->
+    
+    
+
+<!-- details page -->
+<section class="single section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="bg-white pl-lg-4 py-4 pr-4 mb-5 mb-lg-0 sticky-top top-100 overflow-hidden">
+          <ul class="list-styled">
+            
+            <a class="d-block h4 back-btn" href="/blog/fr"></a>
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+               
+              
+
+
+
+
+
+
+
+
+<li data-nav-id="https://sogloarcadius.github.io/blog/fr/git/" title="Git" class="sidelist
+  active">
+  <a href="https://sogloarcadius.github.io/blog/fr/git/">
+    Git
+  </a>
+  
+  
+</li>
+
+
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-lg-5 p-4 bg-white">
+          <h2 class="mb-5">Git</h2>
+          
+          <div class="content"><h4 id="git"><strong>Git</strong></h4>
+<p>Git à été conçue par le créateur du systeme d&rsquo;exploitation Linux (Linus Torvalds).</p>
+<p>C&rsquo;est un système de gestion de version qui permet de gérer les codes sources et de suivre l’évolution des fichiers.</p>
+<p>Il existe d&rsquo;autre systeme de gestion de version comme le SVN.</p>
+<p>Nous pouvons l&rsquo;utiliser pour stocker :</p>
+<ul>
+<li>le code directement déployable (code python, script linux, etc)</li>
+<li>les fichiers de configuration Terraform, cookbooks Chef, playbooks Ansible, etc.</li>
+</ul>
+<p><img src="git.png" alt="git"></p>
+<p><strong>Installation de Git</strong></p>
+<ul>
+<li>
+<p><a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+</li>
+<li>
+<p><a href="https://git-scm.com/book/fr/v2">https://git-scm.com/book/fr/v2</a></p>
+</li>
+</ul>
+<p><strong>Fonctionnement de Git</strong></p>
+<p>Le schéma ci dessous illustre le fonctionnement de Git.</p>
+<p><img src="git_overview.png" alt=""></p>
+<p>Pour interagir avec le serveur Git, on utilise soit l&rsquo;interface de ligne de commande ou des clients Git comme par exemple <a href="https://www.gitkraken.com/">Gitkraken</a></p>
+<p>La plupart des IDE propose un client git intégré.</p>
+<p>Quelques commandes git :</p>
+<p><img src="git_workflow.png" alt=""></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">
+<span style="color:#75715e"># Cette commande permet d&#39;initialiser un nouveau projet dans le dossier courant</span>
+
+$ git init
+
+<span style="color:#75715e"># Cette commande permet d&#39;ajouter les nouvelles modifications. On indique explicitement à git de prendre en compte les nouvelles modifications.</span>
+
+$ git add
+
+<span style="color:#75715e"># Cette commande permet de valider localement les modifications (local repository)</span>
+
+$ git commit
+
+<span style="color:#75715e"># Cette commande permet de publier les modifications sur le serveur distant (remote repository)</span>
+
+$ git push
+
+<span style="color:#75715e"># Cette commande permet de récupérer pour la premiere fois un projet déja existant sur le serveur distant</span>
+
+$ git clone &lt;url&gt;
+
+<span style="color:#75715e"># Cette commande permet de supprimer un fichier localement et sur le serveur distant</span> 
+
+$ git rm file.txt
+$ git commit -m <span style="color:#e6db74">&#34;removed file.txt&#34;</span>
+
+
+<span style="color:#75715e"># Cette commande permet de supprimer un fichier uniquemement localement</span> 
+
+$ git rm --cached file.txt
+
+</code></pre></div><p><img src="git_folders.png" alt=""></p>
+<h4 id="gitlab"><strong>GitLab</strong></h4>
+<p><strong>Gitlab</strong> est un service de repository de code qui permet de mettre en place un serveur git.</p>
+<p>Le logiciel permet de suivre les versions des fichiers et code sources et fournit plusieurs autres fonctionnalités :</p>
+<ul>
+<li>
+<p>Suivi de ticket (Gitlab issues)</p>
+</li>
+<li>
+<p>Auto Devops (Gitlab CI)</p>
+</li>
+</ul>
+</div>
+          
+          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 22 Mar 2020</p>
+          <nav class="pagination mt-3">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <a class="nav nav-prev" href="https://sogloarcadius.github.io/blog/fr/contrail/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Contrail</span></a>
+            
+            
+            <a class="nav nav-next" href="https://sogloarcadius.github.io/blog/fr/ansible/"> <span class="d-none d-md-block">Ansible</span><i class="ti-arrow-right ml-2"></i></a>
+            
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details page -->
+
+
+
+
+
+    <!-- footer -->
+<footer class="section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+       <p>© sogloarcadius</p>
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://www.facebook.com/sogloarcadius"><i class="ti-facebook"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/sogloarcadius"><i class="ti-twitter-alt"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://www.linkedin.com/in/arcadius-soglo-275bb180/"><i class="ti-linkedin"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Main Script -->
+
+<script src="https://sogloarcadius.github.io/blog/js/script.min.js"></script>
+  </body>
+
+</html>

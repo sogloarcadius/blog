@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+  <head>
+  <meta charset="utf-8">
+  <title>Jenkins</title>
+
+  <meta name="generator" content="Hugo 0.68.1" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/bootstrap/bootstrap.min.css">
+
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/themify-icons/themify-icons.css">
+
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/highlight/hybrid.css">
+
+  <!--Favicon-->
+  <link rel="icon" href="https://sogloarcadius.github.io/blog/images/favicon.png" type="image/x-icon">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+  
+  <style>
+  :root{
+    --primary-color:#03A9F4;
+    --body-color:#f9f9f9;
+    --text-color:#636363;
+    --text-color-dark:#242738;
+    --white-color:#ffffff;
+    --light-color:#f8f9fa;
+    --font-family:Lato;
+  }
+  </style>
+
+<!-- Main Stylesheet -->
+
+<link rel="stylesheet" href="https://sogloarcadius.github.io/blog/css/style.min.css" media="screen">
+
+<!-- jquiry -->
+<script src="https://sogloarcadius.github.io/blog/plugins/jquery/jquery-1.12.4.js"></script>
+
+<!-- jquary ui -->
+<script src="https://sogloarcadius.github.io/blog/plugins/jquery/jquery-ui.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://sogloarcadius.github.io/blog/plugins/bootstrap/bootstrap.min.js"></script>
+
+<!-- match-height JS -->
+<script src="https://sogloarcadius.github.io/blog/plugins/match-height/jquery.matchHeight-min.js"></script>
+
+<!-- highlight -->
+<script src="https://sogloarcadius.github.io/blog/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+  
+  <body>
+    
+    <!-- header -->
+    <header class="shadow-bottom sticky-top bg-white">
+      <nav class="navbar navbar-expand-md navbar-light">
+  <div class="container">
+    <a class="navbar-brand px-2" href="/blog/fr">
+      
+      
+      
+      Blog
+      
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/blog/fr">Accueil</a>
+        </li>
+        
+      </ul>
+      
+      <select class="lang-list dark" id="select-language"
+        onchange="location = this.value;">
+        
+        
+        
+        
+        
+        
+        
+        
+        <option id="fr" value="https://sogloarcadius.github.io/blog/fr/jenkins/" selected>Fr
+        </option>
+        
+        
+        
+        
+        
+        
+      </select>
+      
+    </div>
+  </div>
+</nav>
+    </header>
+    <!-- /header -->
+    
+    
+
+<!-- details page -->
+<section class="single section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="bg-white pl-lg-4 py-4 pr-4 mb-5 mb-lg-0 sticky-top top-100 overflow-hidden">
+          <ul class="list-styled">
+            
+            <a class="d-block h4 back-btn" href="/blog/fr"></a>
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+               
+              
+
+
+
+
+
+
+
+
+<li data-nav-id="https://sogloarcadius.github.io/blog/fr/jenkins/" title="Jenkins" class="sidelist
+  active">
+  <a href="https://sogloarcadius.github.io/blog/fr/jenkins/">
+    Jenkins
+  </a>
+  
+  
+</li>
+
+
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-lg-5 p-4 bg-white">
+          <h2 class="mb-5">Jenkins</h2>
+          
+          <div class="content"><p><strong>Jenkins</strong></p>
+<p>Le logiciel Jenkins permet d&rsquo;orchestrer les différentes étapes de la chaine d&rsquo;intégration et de déploiement.</p>
+<p>Il permet d&rsquo;automatiser la phase entre la récupération du code des développeurs sur l’outil de contrôle de version (GIT) et son déploiement sur l’infrastructure cible.</p>
+<p>Comme illustré par le schéma ci dessus, Jenkins s’interface facilement avec les outils de la CI/CD.</p>
+<p>Jenkins nous permet de définir les étapes de l’intégration et du déploiement de différente manière.</p>
+<p>Nous pouvons définir les étapes en utilisant l’interface graphique</p>
+<p><img src="jenkins_ui.png" alt="Jenkins"></p>
+<p>ou en utilisant le langage de programmation Groovy.</p>
+<p><a href="https://jenkins.io/doc/book/pipeline/syntax/">https://jenkins.io/doc/book/pipeline/syntax/</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">
+pipeline <span style="color:#f92672">{</span>
+    agent any
+    stages <span style="color:#f92672">{</span>
+        stage<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Example&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            steps <span style="color:#f92672">{</span>
+                echo <span style="color:#e6db74">&#39;Hello World&#39;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+    post <span style="color:#f92672">{</span> 
+        always <span style="color:#f92672">{</span> 
+            echo <span style="color:#e6db74">&#39;I will always say Hello again!&#39;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><p>Les projets Jenkins permettent de décrire les étapes de la chaine de déploiement.</p>
+<p>Voici ci-dessous un exemple des étapes de déploiement continu.</p>
+<p><img src="jenkins_pipeline.png" alt="Jenkins"></p>
+<p><strong>Apprendre JENKINS</strong></p>
+<ul>
+<li><a href="https://jenkins.io/doc/">DOCUMENTATION</a></li>
+</ul>
+</div>
+          
+          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 22 Mar 2020</p>
+          <nav class="pagination mt-3">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <a class="nav nav-prev" href="https://sogloarcadius.github.io/blog/fr/ansible/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Ansible</span></a>
+            
+            
+            <a class="nav nav-next" href="https://sogloarcadius.github.io/blog/fr/nexus/"> <span class="d-none d-md-block">Nexus</span><i class="ti-arrow-right ml-2"></i></a>
+            
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details page -->
+
+
+
+
+
+    <!-- footer -->
+<footer class="section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+       <p>© sogloarcadius</p>
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://www.facebook.com/sogloarcadius"><i class="ti-facebook"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/sogloarcadius"><i class="ti-twitter-alt"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://www.linkedin.com/in/arcadius-soglo-275bb180/"><i class="ti-linkedin"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Main Script -->
+
+<script src="https://sogloarcadius.github.io/blog/js/script.min.js"></script>
+  </body>
+
+</html>

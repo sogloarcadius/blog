@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+  <head>
+  <meta charset="utf-8">
+  <title>Contrail</title>
+
+  <meta name="generator" content="Hugo 0.68.1" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/bootstrap/bootstrap.min.css">
+
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/themify-icons/themify-icons.css">
+
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/highlight/hybrid.css">
+
+  <!--Favicon-->
+  <link rel="icon" href="https://sogloarcadius.github.io/blog/images/favicon.png" type="image/x-icon">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+  
+  <style>
+  :root{
+    --primary-color:#03A9F4;
+    --body-color:#f9f9f9;
+    --text-color:#636363;
+    --text-color-dark:#242738;
+    --white-color:#ffffff;
+    --light-color:#f8f9fa;
+    --font-family:Lato;
+  }
+  </style>
+
+<!-- Main Stylesheet -->
+
+<link rel="stylesheet" href="https://sogloarcadius.github.io/blog/css/style.min.css" media="screen">
+
+<!-- jquiry -->
+<script src="https://sogloarcadius.github.io/blog/plugins/jquery/jquery-1.12.4.js"></script>
+
+<!-- jquary ui -->
+<script src="https://sogloarcadius.github.io/blog/plugins/jquery/jquery-ui.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://sogloarcadius.github.io/blog/plugins/bootstrap/bootstrap.min.js"></script>
+
+<!-- match-height JS -->
+<script src="https://sogloarcadius.github.io/blog/plugins/match-height/jquery.matchHeight-min.js"></script>
+
+<!-- highlight -->
+<script src="https://sogloarcadius.github.io/blog/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+  
+  <body>
+    
+    <!-- header -->
+    <header class="shadow-bottom sticky-top bg-white">
+      <nav class="navbar navbar-expand-md navbar-light">
+  <div class="container">
+    <a class="navbar-brand px-2" href="/blog/fr">
+      
+      
+      
+      Blog
+      
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/blog/fr">Accueil</a>
+        </li>
+        
+      </ul>
+      
+      <select class="lang-list dark" id="select-language"
+        onchange="location = this.value;">
+        
+        
+        
+        
+        
+        
+        
+        
+        <option id="fr" value="https://sogloarcadius.github.io/blog/fr/contrail/" selected>Fr
+        </option>
+        
+        
+        
+        
+        
+        
+      </select>
+      
+    </div>
+  </div>
+</nav>
+    </header>
+    <!-- /header -->
+    
+    
+
+<!-- details page -->
+<section class="single section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="bg-white pl-lg-4 py-4 pr-4 mb-5 mb-lg-0 sticky-top top-100 overflow-hidden">
+          <ul class="list-styled">
+            
+            <a class="d-block h4 back-btn" href="/blog/fr"></a>
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+               
+              
+
+
+
+
+
+
+
+
+<li data-nav-id="https://sogloarcadius.github.io/blog/fr/contrail/" title="Contrail" class="sidelist
+  active">
+  <a href="https://sogloarcadius.github.io/blog/fr/contrail/">
+    Contrail
+  </a>
+  
+  
+</li>
+
+
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-lg-5 p-4 bg-white">
+          <h2 class="mb-5">Contrail</h2>
+          
+          <div class="content"><p><strong>Contrail</strong></p>
+<p>Contrail est un contrôleur SDN développé par la société JUNIPER.</p>
+<p>C’est une solution qui offre une version <a href="https://tungsten.io/">open source</a> et une version <a href="https://www.juniper.net/us/en/products-services/sdn/contrail/">payante</a>.</p>
+<p>Avec Contrail nous pouvons automatiser et orchestrer la création de réseaux virtuels hautement évolutifs.</p>
+<p>Il permet de créer des réseaux virtuels qui s&rsquo;intègrent en toute transparence aux réseaux physiques existants et qui sont simples à gérer et à orchestrer.</p>
+<p>Cela évite la dépendance vis-à-vis d&rsquo;un seul fournisseur et élimine les coûts qui y sont liés grâce à une architecture ouverte fonctionnant conjointement avec une large gamme de systèmes d&rsquo;orchestration et de réseaux physiques.</p>
+<p>Voici ci-dessous l’interface graphique de Contrail.</p>
+<p><img src="contrail_gui.png" alt="contrail"></p>
+<p><strong>Architecture de contrail</strong></p>
+<p>Contrail dispose d&rsquo;une architecture modulaire.</p>
+<p>Voici les différents composants de contrail :</p>
+<ul>
+<li>Configuration node</li>
+</ul>
+<blockquote>
+<p>The configuration node provides a REST API that allows an orchestration system to define virtual-networks, virtual-interfaces and network policies that control the flow of traffic between virtual-networks.</p>
+</blockquote>
+<ul>
+<li>Control node</li>
+</ul>
+<blockquote>
+<p>The control node implements a distributed database that contains the ephemeral state of the system. Control nodes federate with each other using the BGP routing protocol.</p>
+</blockquote>
+<ul>
+<li>Analytics engine</li>
+</ul>
+<blockquote>
+<p>The network analytics engine collects information such as network flow records from the compute-nodes and makes them available via a REST API.</p>
+</blockquote>
+<ul>
+<li>Compute node</li>
+</ul>
+<blockquote>
+<p>The compute node includes both a user space process (agent) as well as dataplane component that executes as a loadable kernel module on the Host operating system.</p>
+</blockquote>
+</div>
+          
+          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 22 Mar 2020</p>
+          <nav class="pagination mt-3">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <a class="nav nav-prev" href="https://sogloarcadius.github.io/blog/fr/sdn-nfv/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">SDN &amp; NFV</span></a>
+            
+            
+            <a class="nav nav-next" href="https://sogloarcadius.github.io/blog/fr/git/"> <span class="d-none d-md-block">Git</span><i class="ti-arrow-right ml-2"></i></a>
+            
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details page -->
+
+
+
+
+
+    <!-- footer -->
+<footer class="section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+       <p>© sogloarcadius</p>
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://www.facebook.com/sogloarcadius"><i class="ti-facebook"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/sogloarcadius"><i class="ti-twitter-alt"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://www.linkedin.com/in/arcadius-soglo-275bb180/"><i class="ti-linkedin"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Main Script -->
+
+<script src="https://sogloarcadius.github.io/blog/js/script.min.js"></script>
+  </body>
+
+</html>

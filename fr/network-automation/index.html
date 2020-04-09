@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+  <head>
+  <meta charset="utf-8">
+  <title>Network Automation</title>
+
+  <meta name="generator" content="Hugo 0.68.1" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/bootstrap/bootstrap.min.css">
+
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/themify-icons/themify-icons.css">
+
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/highlight/hybrid.css">
+
+  <!--Favicon-->
+  <link rel="icon" href="https://sogloarcadius.github.io/blog/images/favicon.png" type="image/x-icon">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+  
+  <style>
+  :root{
+    --primary-color:#03A9F4;
+    --body-color:#f9f9f9;
+    --text-color:#636363;
+    --text-color-dark:#242738;
+    --white-color:#ffffff;
+    --light-color:#f8f9fa;
+    --font-family:Lato;
+  }
+  </style>
+
+<!-- Main Stylesheet -->
+
+<link rel="stylesheet" href="https://sogloarcadius.github.io/blog/css/style.min.css" media="screen">
+
+<!-- jquiry -->
+<script src="https://sogloarcadius.github.io/blog/plugins/jquery/jquery-1.12.4.js"></script>
+
+<!-- jquary ui -->
+<script src="https://sogloarcadius.github.io/blog/plugins/jquery/jquery-ui.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://sogloarcadius.github.io/blog/plugins/bootstrap/bootstrap.min.js"></script>
+
+<!-- match-height JS -->
+<script src="https://sogloarcadius.github.io/blog/plugins/match-height/jquery.matchHeight-min.js"></script>
+
+<!-- highlight -->
+<script src="https://sogloarcadius.github.io/blog/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+  
+  <body>
+    
+    <!-- header -->
+    <header class="shadow-bottom sticky-top bg-white">
+      <nav class="navbar navbar-expand-md navbar-light">
+  <div class="container">
+    <a class="navbar-brand px-2" href="/blog/fr">
+      
+      
+      
+      Blog
+      
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/blog/fr">Accueil</a>
+        </li>
+        
+      </ul>
+      
+      <select class="lang-list dark" id="select-language"
+        onchange="location = this.value;">
+        
+        
+        
+        
+        
+        
+        
+        
+        <option id="fr" value="https://sogloarcadius.github.io/blog/fr/network-automation/" selected>Fr
+        </option>
+        
+        
+        
+        
+        
+        
+      </select>
+      
+    </div>
+  </div>
+</nav>
+    </header>
+    <!-- /header -->
+    
+    
+
+<!-- details page -->
+<section class="single section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="bg-white pl-lg-4 py-4 pr-4 mb-5 mb-lg-0 sticky-top top-100 overflow-hidden">
+          <ul class="list-styled">
+            
+            <a class="d-block h4 back-btn" href="/blog/fr"></a>
+            
+              
+            
+               
+              
+
+
+
+
+
+
+
+
+<li data-nav-id="https://sogloarcadius.github.io/blog/fr/network-automation/" title="Network Automation" class="sidelist
+  active">
+  <a href="https://sogloarcadius.github.io/blog/fr/network-automation/">
+    Network Automation
+  </a>
+  
+  
+</li>
+
+
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-lg-5 p-4 bg-white">
+          <h2 class="mb-5">Network Automation</h2>
+          
+          <div class="content"><h5 id="les-différentes-approches">Les différentes approches</h5>
+<p>Il existe plusieurs approches à l&rsquo;automatisation du réseau.</p>
+<p>La premiere approche est l&rsquo;utilisation des technologies SDN &amp; NFV pour concevoir des réseaux flexibles et facile à automatiser.
+Cette approche demande un grand changement dans l&rsquo;architecture réseau existant.
+Les technologies SDN &amp; NFV permettent de construire des réseaux <em>programmables</em> et simple à automatiser avec les interfaces nord du SDN Controller. Cette approche demande de revoir l&rsquo;architecture du réseau et introduit de nouveaux composants dans le réseau de l&rsquo;entreprise.</p>
+<p>La deuxieme approche est le maintien de l&rsquo;architecture existant avec la mise en place de solutions logicielles pour centraliser la gestion du réseau.</p>
+<p>Il existe plusieurs niveaux pour automatiser le réseau.</p>
+<p><strong>Ad-hoc scripting</strong></p>
+<p>Le premier niveau est l&rsquo;utilisation des langages de programmation pour interagir avec les équipements.</p>
+<p>Il existe des modules spécifiques dans chaque langage de programmation et le langage de programmation le plus utilisé pour automatiser la gestion des équipements réseaux est le Python.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Langages de programmation</th>
+<th align="center">Modules d&rsquo;automatisation réseau</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Python</td>
+<td align="center">netmiko <br/> paramiko <br/> pexpect <br/> napalm <br/> ncclient</td>
+</tr>
+<tr>
+<td align="center">Perl</td>
+<td align="center">Mnet <br/> expect</td>
+</tr>
+</tbody>
+</table>
+<p>Généralement, ces modules permettent de se connecter en SSH ou Telnet sur les équipements pour éxécuter des instructions.</p>
+<p>Elles fournissent une abstraction dans le langage (abstraction de bas niveau) pour interagir avec les équipements réseaux.</p>
+<p><strong>Frameworks</strong></p>
+<p>Une autre technique est l&rsquo;utilisation des <em>frameworks</em> qui fournissent une couche d&rsquo;abstraction supplémentaire (abstraction de niveau intermédaire) pour interagir avec les équipements réseaux.</p>
+<p>Voici une liste non exhaustive des frameworks d&rsquo;automatisation réseaux sur le marché  :</p>
+<ul>
+<li><a href="https://docs.ansible.com/">Ansible</a></li>
+<li><a href="https://docs.stackstorm.com/">Stackstorm</a></li>
+</ul>
+<p>L&rsquo;objectif est de fournir une abstraction de haut niveau pour interagir avec les équipements réseaux (LAN, WAN, Réseaux Cloud).</p>
+<p>Il existe de nombreuses solutions propriétaires pour automatiser le réseau mais l&rsquo;entreprise peut mettre en place sa propre solution en utilisant les technologies open source.</p>
+<p>Ces solutions logicielles sont généralement multi-vendeurs et proposent les fonctionnalités suivantes :</p>
+<ul>
+<li>
+<p>Découverte des équipements du réseau</p>
+</li>
+<li>
+<p>Représentation graphique de la topologie logique et physique du réseau</p>
+</li>
+<li>
+<p>Gestion et automatisation de la configuration des équipements</p>
+</li>
+<li>
+<p>Analyse du réseau pour détection des anomalies</p>
+</li>
+</ul>
+<h5 id="culture-dautomatisation"><strong>Culture d&rsquo;automatisation</strong></h5>
+<p>L&rsquo;automatisation du réseau demande une étroite collaboration entre les ingénieurs logiciels et ingénieurs réseaux. Les méthodes agiles et le mouvement DevOps permettent de réduire le risque d'échec d&rsquo;un projet d&rsquo;automatisation du réseau.</p>
+<p>L&rsquo;entreprise qui conçoit sa solution d&rsquo;automatisation doit développé et intégré des composants de plusieurs vendeurs.</p>
+<p>Les méthodes de travail classique (Cycle V) ne sont pas adaptés et la bonne réussite d&rsquo;un projet d&rsquo;automatisation du réseau nécessite un changement dans la maniere de travailler des équipes.</p>
+<p><em><strong>Méthodes agiles</strong></em></p>
+<p>L’agilité n’invente rien, mais remet au premier plan les bons principes et les bonnes pratiques qui produisent de bons résultats.</p>
+<p>Les approches agiles existent bien avant les années 2000 mais elles connaissent une plus grande visibilité à partir de 2001 avec le manifeste agile.</p>
+<p>17 experts en développement logiciel ayant une volonté de mettre en avant ce qui fonctionne bien et de fédérer des acteurs autour de valeurs et principes de travail.</p>
+<p>Le manifeste introduit 4 valeurs et 12 principes de base dans une équipe agile.</p>
+<p>On distingue principalement deux méthodes agiles :</p>
+<ul>
+<li>la méthode agile <em>KANBAN</em></li>
+<li>et la méthode agile <em>SCRUM</em>.</li>
+</ul>
+<p>Ces deux méthodes visent une amélioration empirique et continue de l’équipe.</p>
+<p>Elles permettent d’avoir un fonctionnement itératif contrairement à la méthode de gestion de projet en cycle V qui planifie tout à l’avance.</p>
+<p>Les méthodes agiles KANBAN et SCRUM permettent un management visuel du projet et favorisent des petites équipes qui produisent des petits livrables de manière continue.</p>
+<p>La méthode agile KANBAN permet principalement de faire un management visuel des activités de chaque membre de l’équipe.</p>
+<p>L’idée est de suivre les actions des différents membres sous forme de taches.</p>
+<p>Une tache peut être dans les trois états suivants : « à faire », « en cours » et « terminée ».</p>
+<p>La méthode agile SCRUM est très normative et identifie des rôles dans l’équipe.</p>
+<p>Cette méthode définit des « SPRINT » c’est-à-dire que l’équipe définie des périodes (idéalement des Sprint de 2 à 4 semaines) pour la livraison de petites fonctionnalités.</p>
+<p>On distingue trois principaux acteurs dans une équipe Agile <em>SCRUM</em> :</p>
+<table>
+<thead>
+<tr>
+<th align="center">Acteur</th>
+<th align="center">Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Le Product Owner (PO)</td>
+<td align="center">il porte la vision, valide et coordonne les actions. Il est responsable du retour sur investissement. Il affine le besoin avec l’équipe projet. Parmi ces qualités on retrouve la disponibilité, la compétence et l’investissement.</td>
+</tr>
+<tr>
+<td align="center">Le SCRUM Master</td>
+<td align="center">c’est un facilitateur. Il organise les cérémonies (réunions des équipes). C’est le protecteur de l'équipe. Il connait l&rsquo;organisation, l&rsquo;agilité et garanti le bon fonctionnement du projet. Il permet la bonne communication avec les équipes et le P.O.</td>
+</tr>
+<tr>
+<td align="center">L&rsquo; Equipe projet</td>
+<td align="center">L’équipe de réalisation est pluridisciplinaire, polyvalente et compétente dans plusieurs domaines. Une équipe agile est avant tout force de motivation.</td>
+</tr>
+</tbody>
+</table>
+<p>Il existe plusieurs outils pour la gestion de projet agile.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Logiciel</th>
+<th align="center">Méthode agiles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>JIRA</strong></td>
+<td align="center">SCRUM, KANBAN</td>
+</tr>
+<tr>
+<td align="center">WEKAN</td>
+<td align="center">KANBAN</td>
+</tr>
+<tr>
+<td align="center">TRELLO</td>
+<td align="center">KANBAN</td>
+</tr>
+<tr>
+<td align="center">LEANKIT</td>
+<td align="center">KANBAN</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>DevOps</strong></em></p>
+<p>Le cycle de développement logiciel dans les grandes entreprises pose très souvent des problèmes d’alignement des équipes.</p>
+<p>Les préconisations du mouvement DevOps permettent de fluidifier le cycle de développement logiciel (chaine de production) de l’entreprise et d’éliminer le plus possible les risques d’échec du projet.</p>
+<p>L&rsquo;idée du DevOps est d&rsquo;aligner les équipes de développement et opérationnelles sur les memes objectifs. Il s&rsquo;agit de construire des équipes projets et éviter le conflit d&rsquo;interet entre les développeurs et les opérationnelles.</p>
+<p>Ci-dessous les principales préconisations du mouvement DevOps :</p>
+<ul>
+<li>Communication et collaboration</li>
+<li>Intégration continue et déploiement continu</li>
+<li>Monitoring et mesures</li>
+</ul>
+<p>Le schéma ci-dessous illustre la démarche DevOps :</p>
+<p><img src="devops_architecture.png" alt="DevOps"></p>
+<p>La démarche DevOps s’intègre dans la continuité des méthodologies agiles.
+Néanmoins la réussite d’un projet DevOps nécessite la mise en place d’outils pour aider les équipes. Ces outils permettent à l’entreprise de réduire considérablement le temps de mise en service du produit aux clients finaux.</p>
+<p>Il existe sur le marché plusieurs solutions pour mettre en place une démarche DevOps dans une entreprise. L&rsquo;objectif est de mettre en place une chaine d’outils pour faire de l’intégration et du déploiement continu.</p>
+<p>Ci dessous une chaine d&rsquo;outils pour faire de <strong>l&rsquo;intégration et du déploimenent continu</strong> :</p>
+<p><img src="devops_tools.png" alt="DevOps"></p>
+<p>Ci dessous une liste d&rsquo;outils pour les préconisations concernant la <strong>communication, la collaboration, le monitoring et mesures</strong> :</p>
+<p><img src="devops_tools_bis.png" alt="DevOps"></p>
+<p>On parle aussi de  :</p>
+<ul>
+<li>NetOps (Equipes réseaux alignés avec les équipes Opérationnels)</li>
+<li>SecOps (Equipes sécurité alignés avec les équipes Opérationnels)</li>
+<li>DevSecOps (Equipes de Dev alignés avec les équipes Sécurité et Opérationnels)</li>
+</ul>
+</div>
+          
+          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 22 Mar 2020</p>
+          <nav class="pagination mt-3">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <a class="nav nav-prev" href="https://sogloarcadius.github.io/blog/fr/sdn/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">SDN</span></a>
+            
+            
+            <a class="nav nav-next" href="https://sogloarcadius.github.io/blog/fr/nfv/"> <span class="d-none d-md-block">NFV</span><i class="ti-arrow-right ml-2"></i></a>
+            
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details page -->
+
+
+
+
+
+    <!-- footer -->
+<footer class="section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+       <p>© sogloarcadius</p>
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://www.facebook.com/sogloarcadius"><i class="ti-facebook"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/sogloarcadius"><i class="ti-twitter-alt"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://www.linkedin.com/in/arcadius-soglo-275bb180/"><i class="ti-linkedin"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Main Script -->
+
+<script src="https://sogloarcadius.github.io/blog/js/script.min.js"></script>
+  </body>
+
+</html>

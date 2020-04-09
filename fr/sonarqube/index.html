@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+  <head>
+  <meta charset="utf-8">
+  <title>SonarQube</title>
+
+  <meta name="generator" content="Hugo 0.68.1" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/bootstrap/bootstrap.min.css">
+
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/themify-icons/themify-icons.css">
+
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/highlight/hybrid.css">
+
+  <!--Favicon-->
+  <link rel="icon" href="https://sogloarcadius.github.io/blog/images/favicon.png" type="image/x-icon">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+  
+  <style>
+  :root{
+    --primary-color:#03A9F4;
+    --body-color:#f9f9f9;
+    --text-color:#636363;
+    --text-color-dark:#242738;
+    --white-color:#ffffff;
+    --light-color:#f8f9fa;
+    --font-family:Lato;
+  }
+  </style>
+
+<!-- Main Stylesheet -->
+
+<link rel="stylesheet" href="https://sogloarcadius.github.io/blog/css/style.min.css" media="screen">
+
+<!-- jquiry -->
+<script src="https://sogloarcadius.github.io/blog/plugins/jquery/jquery-1.12.4.js"></script>
+
+<!-- jquary ui -->
+<script src="https://sogloarcadius.github.io/blog/plugins/jquery/jquery-ui.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://sogloarcadius.github.io/blog/plugins/bootstrap/bootstrap.min.js"></script>
+
+<!-- match-height JS -->
+<script src="https://sogloarcadius.github.io/blog/plugins/match-height/jquery.matchHeight-min.js"></script>
+
+<!-- highlight -->
+<script src="https://sogloarcadius.github.io/blog/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+  
+  <body>
+    
+    <!-- header -->
+    <header class="shadow-bottom sticky-top bg-white">
+      <nav class="navbar navbar-expand-md navbar-light">
+  <div class="container">
+    <a class="navbar-brand px-2" href="/blog/fr">
+      
+      
+      
+      Blog
+      
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/blog/fr">Accueil</a>
+        </li>
+        
+      </ul>
+      
+      <select class="lang-list dark" id="select-language"
+        onchange="location = this.value;">
+        
+        
+        
+        
+        
+        
+        
+        
+        <option id="fr" value="https://sogloarcadius.github.io/blog/fr/sonarqube/" selected>Fr
+        </option>
+        
+        
+        
+        
+        
+        
+      </select>
+      
+    </div>
+  </div>
+</nav>
+    </header>
+    <!-- /header -->
+    
+    
+
+<!-- details page -->
+<section class="single section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="bg-white pl-lg-4 py-4 pr-4 mb-5 mb-lg-0 sticky-top top-100 overflow-hidden">
+          <ul class="list-styled">
+            
+            <a class="d-block h4 back-btn" href="/blog/fr"></a>
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+               
+              
+
+
+
+
+
+
+
+
+<li data-nav-id="https://sogloarcadius.github.io/blog/fr/sonarqube/" title="SonarQube" class="sidelist
+  active">
+  <a href="https://sogloarcadius.github.io/blog/fr/sonarqube/">
+    SonarQube
+  </a>
+  
+  
+</li>
+
+
+              
+            
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-lg-5 p-4 bg-white">
+          <h2 class="mb-5">SonarQube</h2>
+          
+          <div class="content"><p>Dans un contexte de développement logiciel, il est primordial de mettre en place des solutions pour réduire la vulnérabilité du produit final.</p>
+<p>Il existe sur le marché, plusieurs logiciels pour analyser la qualité et la sécurité du code des développeurs.</p>
+<ul>
+<li>
+<p><a href="https://gitlab.com/gitlab-org/security-products/codequality">GitLab CodeQuality</a></p>
+</li>
+<li>
+<p><a href="https://docs.codeclimate.com/docs/list-of-engines">CodeClimate</a></p>
+</li>
+<li>
+<p><a href="https://www.sonarqube.org/">SonarQube</a></p>
+</li>
+</ul>
+<p>Le logiciel SonarQube supporte plus de 20 langages de programmation (Python, JAVA, Groovy,…) et peut être facilement interfacé avec Jenkins.</p>
+<p>Voici ci-dessous l’interface graphique de SonarQube.</p>
+<p><img src="sonarqube.png" alt="SonarQube"></p>
+<p>L’analyse de la qualité permet d’identifier les problèmes dans le code des développeurs.</p>
+<p>SonarQube nous donne des indicateurs sur le code par exemple le nombre de lignes, les erreurs, la complexité et la dette technique.</p>
+<p>La dette technique permet à l’équipe d’estimer le temps nécessaire pour avoir un code de qualité.</p>
+<p>Voici ci dessous quelques liens utiles</p>
+<ul>
+<li><a href="https://www.sonarqube.org/">Documentation</a></li>
+<li><a href="https://docs.sonarqube.org/display/PLUG/Python+Coverage+Results+Import">Sonar Coverage</a></li>
+<li><a href="https://docs.sonarqube.org/display/PLUG/Pylint+Report">Sonar Pylint</a></li>
+</ul>
+<p>Pour analyser localement le code on peut utiliser les outils suivants :</p>
+<table>
+<thead>
+<tr>
+<th align="left">Language</th>
+<th align="left">Outils</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Ansible</td>
+<td align="left">ansible-lint</td>
+</tr>
+<tr>
+<td align="left">Python</td>
+<td align="left">pylint <br/> flake8 [mccabe, pycodestyle, pyflakes] <br/> bandit</td>
+</tr>
+<tr>
+<td align="left">Java</td>
+<td align="left">find-sec-bugs</td>
+</tr>
+<tr>
+<td align="left">Ruby</td>
+<td align="left">brakeman</td>
+</tr>
+<tr>
+<td align="left">Docker</td>
+<td align="left"><a href="https://github.com/coreos/clair">clair</a></td>
+</tr>
+<tr>
+<td align="left">C/C++</td>
+<td align="left">Flawfinder</td>
+</tr>
+<tr>
+<td align="left">Scala</td>
+<td align="left">find-sec-bugs</td>
+</tr>
+<tr>
+<td align="left">PHP</td>
+<td align="left">phpcs-security-audit</td>
+</tr>
+<tr>
+<td align="left">.NET</td>
+<td align="left"><a href="https://security-code-scan.github.io/">Security Code Scan</a></td>
+</tr>
+<tr>
+<td align="left">Node.js</td>
+<td align="left"><a href="https://github.com/ajinabraham/NodeJsScan">NodeJsScan</a></td>
+</tr>
+<tr>
+<td align="left">Sécurité du code</td>
+<td align="left">Coverity <br/> Fortify <br/> CheckMark <br/> GitLab SAST (Open source)</td>
+</tr>
+</tbody>
+</table>
+</div>
+          
+          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 22 Mar 2020</p>
+          <nav class="pagination mt-3">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <a class="nav nav-prev" href="https://sogloarcadius.github.io/blog/fr/python-testing/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Python Testing</span></a>
+            
+            
+            <a class="nav nav-next" href="https://sogloarcadius.github.io/blog/fr/sdn/"> <span class="d-none d-md-block">SDN</span><i class="ti-arrow-right ml-2"></i></a>
+            
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details page -->
+
+
+
+
+
+    <!-- footer -->
+<footer class="section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+       <p>© sogloarcadius</p>
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://www.facebook.com/sogloarcadius"><i class="ti-facebook"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/sogloarcadius"><i class="ti-twitter-alt"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://www.linkedin.com/in/arcadius-soglo-275bb180/"><i class="ti-linkedin"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Main Script -->
+
+<script src="https://sogloarcadius.github.io/blog/js/script.min.js"></script>
+  </body>
+
+</html>

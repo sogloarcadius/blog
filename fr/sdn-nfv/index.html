@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+  <head>
+  <meta charset="utf-8">
+  <title>SDN &amp; NFV</title>
+
+  <meta name="generator" content="Hugo 0.68.1" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/bootstrap/bootstrap.min.css">
+
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/themify-icons/themify-icons.css">
+
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/highlight/hybrid.css">
+
+  <!--Favicon-->
+  <link rel="icon" href="https://sogloarcadius.github.io/blog/images/favicon.png" type="image/x-icon">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+  
+  <style>
+  :root{
+    --primary-color:#03A9F4;
+    --body-color:#f9f9f9;
+    --text-color:#636363;
+    --text-color-dark:#242738;
+    --white-color:#ffffff;
+    --light-color:#f8f9fa;
+    --font-family:Lato;
+  }
+  </style>
+
+<!-- Main Stylesheet -->
+
+<link rel="stylesheet" href="https://sogloarcadius.github.io/blog/css/style.min.css" media="screen">
+
+<!-- jquiry -->
+<script src="https://sogloarcadius.github.io/blog/plugins/jquery/jquery-1.12.4.js"></script>
+
+<!-- jquary ui -->
+<script src="https://sogloarcadius.github.io/blog/plugins/jquery/jquery-ui.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://sogloarcadius.github.io/blog/plugins/bootstrap/bootstrap.min.js"></script>
+
+<!-- match-height JS -->
+<script src="https://sogloarcadius.github.io/blog/plugins/match-height/jquery.matchHeight-min.js"></script>
+
+<!-- highlight -->
+<script src="https://sogloarcadius.github.io/blog/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+  
+  <body>
+    
+    <!-- header -->
+    <header class="shadow-bottom sticky-top bg-white">
+      <nav class="navbar navbar-expand-md navbar-light">
+  <div class="container">
+    <a class="navbar-brand px-2" href="/blog/fr">
+      
+      
+      
+      Blog
+      
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/blog/fr">Accueil</a>
+        </li>
+        
+      </ul>
+      
+      <select class="lang-list dark" id="select-language"
+        onchange="location = this.value;">
+        
+        
+        
+        
+        
+        
+        
+        
+        <option id="fr" value="https://sogloarcadius.github.io/blog/fr/sdn-nfv/" selected>Fr
+        </option>
+        
+        
+        
+        
+        
+        
+      </select>
+      
+    </div>
+  </div>
+</nav>
+    </header>
+    <!-- /header -->
+    
+    
+
+<!-- details page -->
+<section class="single section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="bg-white pl-lg-4 py-4 pr-4 mb-5 mb-lg-0 sticky-top top-100 overflow-hidden">
+          <ul class="list-styled">
+            
+            <a class="d-block h4 back-btn" href="/blog/fr"></a>
+            
+              
+            
+              
+            
+              
+            
+              
+            
+               
+              
+
+
+
+
+
+
+
+
+<li data-nav-id="https://sogloarcadius.github.io/blog/fr/sdn-nfv/" title="SDN &amp; NFV" class="sidelist
+  active">
+  <a href="https://sogloarcadius.github.io/blog/fr/sdn-nfv/">
+    SDN &amp; NFV
+  </a>
+  
+  
+</li>
+
+
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-lg-5 p-4 bg-white">
+          <h2 class="mb-5">SDN &amp; NFV</h2>
+          
+          <div class="content"><h5 id="les-évolutions-au-niveau-de-larchitecture-réseau-des-entreprises">Les évolutions au niveau de l’architecture réseau des entreprises</h5>
+<p>Pour mettre en place les services internet (sites web, jeux en ligne, applications en ligne,…) nous utilisons les équipements réseaux (<strong>routeurs</strong>, <strong>switch</strong>, <strong>serveurs</strong>, …) pour faire fonctionner ces différents services. Avec l’explosion des données et des demandes de service, ces équipements réseaux évoluent pour faire face aux besoins des clients.</p>
+<p>Les entreprises hébergent de plus en plus leurs données dans les <strong>centres de donnés</strong> (datacenter) et leurs réseaux sont gérés dans le Cloud pour leur permettre plus de flexibilité et d’économie. Il existe aujourd’hui de nombreux fournisseurs qui proposent aux entreprises d’héberger leurs données ou applications dans le Cloud. Les datacenters se multiplient donc et les réseaux des opérateurs télécoms évoluent aussi pour faire face aux demandes en bande passante (débit).</p>
+<p>Dans les centres de donnés on retrouve donc des environnements virtualisés basés sur des technologies diverses par exemple VMWare, KVM, …</p>
+<p>Le principe du Cloud repose sur la <strong>virtualisation</strong> qui permet aux fournisseurs  d’optimiser et d’accroître considérablement le taux d’utilisation des ressources serveurs et postes de travail nécessaires aux entreprises. L’équation « une application = un serveur » est rendue obsolète car avec la virtualisation plusieurs applications peuvent tourner sur un même serveur. La gestion dynamique, et non plus statique, des ressources serveurs et applicatives permet de répondre aux besoins de plus en plus élevés de qualité de service rendue aux utilisateurs.</p>
+<p>Chez les fournisseurs de Cloud, on retrouve donc des serveurs sur lesquels fonctionnent plusieurs <strong>machines virtuels</strong> qui vont hébergés des services accessibles aux clients via internet ou des réseaux IP dédiés. Pour assurer l’intégrité des données,  des mécanismes de redondance sont mis en place et des mesures sont prises pour assurer la sécurité des serveurs.</p>
+<p>Plusieurs problématiques se posent donc dans la fourniture de ces types de service et les entreprises IT se force chaque jour de répondre à ceux-ci en apportant de nouvelles solutions sur le marché.</p>
+<p>Parmi ces problématiques figurent donc la centralisation de la gestion des équipements et l’automatisation des services réseaux. Il existe sur le marché plusieurs équipementiers (Cisco, Juniper, HP, Toshiba,…) qui proposent des solutions types à ces problématiques réseaux mais il n’existait pas avant 2013 un standard par rapport à la problématique de centralisation de la gestion du réseau.</p>
+<p>Des études dans les laboratoires R&amp;D ont permis de repenser la façon dont sont gérés les équipements réseaux et de proposer des solutions pour faciliter l’innovation dans ce domaine : il s’agit du SDN.</p>
+<p>Vu les avantages qu’apportent la virtualisation, les entreprises IT cherchent aussi à virtualiser le plus possible les fonctions réseaux pour d’une part avoir plus de souplesse dans l’architecture réseau mais aussi pour réduire ces équipements dans le Datacenter. On ne parlera plus de routeur ou switch mais de vrouter (virtual router) ou vswitch (virtual switch).</p>
+<p>Mais virtualisés ces fonctions réseaux impliquent beaucoup de chose et c’est là tout l’intérêt du SDN. Nous verrons comment le SDN et le NFV fonctionnent et ses avantages pour les entreprises IT.</p>
+<h5 id="comprendre-le-sdnnfv">Comprendre le SDN/NFV</h5>
+<p>La notion de SDN est assez vaste et plusieurs approches de cette technologie existent. De façon générale le SDN est une nouvelle manière de penser le réseau. Cette nouvelle approche du réseau permettrait d’automatiser la gestion du réseau grâce à la programmation. La nouveauté est la séparation du plan de contrôle et du plan de donnée dans les équipements réseaux. Un contrôleur central  pilote l’ensemble des équipements. On définit les règles dans le contrôleur qui le transmet directement à tous les équipements. On va pourvoir piloter des équipements de différentes marques dans la mesure où ils respectent les standards définit par les organismes de normalisation (IETF, ONF, &hellip;).</p>
+<p>Le data plane est implémenté dans les équipements réseaux et le contrôle plane est implémenté dans les contrôleurs réseaux.</p>
+<p>Une couche d’abstraction (abstraction layer) entre le plan de contrôle (applications IT) et le plan de donnée (équipements réseaux) est donc mise en place en utilisant des protocoles de communication comme Openflow, XMPP, BGP, …</p>
+<p>Des <strong>API</strong> (Application Programming Interface) utilisées par les applications vont permettre de gérer le réseau avec des interfaces simple à utiliser. Les API sont des interfaces de programmation qui permettent de masquer toute la complexité de programmation aux utilisateurs. L’objectif est de fournir une porte d&rsquo;accès à une fonctionnalité en cachant les détails de la mise en œuvre.</p>
+<p>Le schéma suivant résume bien le principe du SDN :</p>
+<p><img src="sdn_nfv.png" alt="SDN NFV" title="image"></p>
+<p>Avec le SDN, on va donc être en mesure de piloter le réseau avec un composant central qui est le <strong>contrôleur SDN</strong> (SDN Network Controller).</p>
+<p>De plus, pour gagner encore plus en flexibilité et dynamisme, les entreprises portent les fonctions réseaux des boitiers physiques (Appliance : routeurs, switch, firewall)  dans des environnements virtuels.</p>
+<p>Les machines virtuelles sur les serveurs non seulement vont hébergées des applications métiers mais aussi des fonctions réseaux (firewall, antivirus, Deep Packet Inspection,…)</p>
+<p>Le schéma suivant illustre bien le principe du NFV :</p>
+<p><img src="nfv_principle.png" alt="NFV" title="image"></p>
+<p>Les VNF (Virtual Network Functions) sont des fonctions réseaux virtualisés hébergés dans des machines virtuelles.
+On aura donc passage <strong>d&rsquo;appliances physiques</strong> à des appliances virtuelles et les performances des serveurs seront de plus en plus élevées.
+A l’aide donc d’APIs, les applications vont pourvoir dialoguer avec le réseau pour obtenir des informations sur l'état du réseau, créer des services, etc…</p>
+<p>Le couplage du SDN et du NFV, aboutira donc à des infrastructures centralisées.
+Le schéma suivant illustre bien ce principe :</p>
+<p><img src="sdn_nfv_bis.png" alt="SDN NFV" title="image"></p>
+</div>
+          
+          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 22 Mar 2020</p>
+          <nav class="pagination mt-3">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <a class="nav nav-prev" href="https://sogloarcadius.github.io/blog/fr/ucpe/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Univerval CPE</span></a>
+            
+            
+            <a class="nav nav-next" href="https://sogloarcadius.github.io/blog/fr/contrail/"> <span class="d-none d-md-block">Contrail</span><i class="ti-arrow-right ml-2"></i></a>
+            
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details page -->
+
+
+
+
+
+    <!-- footer -->
+<footer class="section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+       <p>© sogloarcadius</p>
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://www.facebook.com/sogloarcadius"><i class="ti-facebook"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/sogloarcadius"><i class="ti-twitter-alt"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://www.linkedin.com/in/arcadius-soglo-275bb180/"><i class="ti-linkedin"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Main Script -->
+
+<script src="https://sogloarcadius.github.io/blog/js/script.min.js"></script>
+  </body>
+
+</html>

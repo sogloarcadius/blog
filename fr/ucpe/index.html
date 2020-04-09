@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+  <head>
+  <meta charset="utf-8">
+  <title>Univerval CPE</title>
+
+  <meta name="generator" content="Hugo 0.68.1" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/bootstrap/bootstrap.min.css">
+
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/themify-icons/themify-icons.css">
+
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/highlight/hybrid.css">
+
+  <!--Favicon-->
+  <link rel="icon" href="https://sogloarcadius.github.io/blog/images/favicon.png" type="image/x-icon">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+  
+  <style>
+  :root{
+    --primary-color:#03A9F4;
+    --body-color:#f9f9f9;
+    --text-color:#636363;
+    --text-color-dark:#242738;
+    --white-color:#ffffff;
+    --light-color:#f8f9fa;
+    --font-family:Lato;
+  }
+  </style>
+
+<!-- Main Stylesheet -->
+
+<link rel="stylesheet" href="https://sogloarcadius.github.io/blog/css/style.min.css" media="screen">
+
+<!-- jquiry -->
+<script src="https://sogloarcadius.github.io/blog/plugins/jquery/jquery-1.12.4.js"></script>
+
+<!-- jquary ui -->
+<script src="https://sogloarcadius.github.io/blog/plugins/jquery/jquery-ui.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://sogloarcadius.github.io/blog/plugins/bootstrap/bootstrap.min.js"></script>
+
+<!-- match-height JS -->
+<script src="https://sogloarcadius.github.io/blog/plugins/match-height/jquery.matchHeight-min.js"></script>
+
+<!-- highlight -->
+<script src="https://sogloarcadius.github.io/blog/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+  
+  <body>
+    
+    <!-- header -->
+    <header class="shadow-bottom sticky-top bg-white">
+      <nav class="navbar navbar-expand-md navbar-light">
+  <div class="container">
+    <a class="navbar-brand px-2" href="/blog/fr">
+      
+      
+      
+      Blog
+      
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/blog/fr">Accueil</a>
+        </li>
+        
+      </ul>
+      
+      <select class="lang-list dark" id="select-language"
+        onchange="location = this.value;">
+        
+        
+        
+        
+        
+        
+        
+        
+        <option id="fr" value="https://sogloarcadius.github.io/blog/fr/ucpe/" selected>Fr
+        </option>
+        
+        
+        
+        
+        
+        
+      </select>
+      
+    </div>
+  </div>
+</nav>
+    </header>
+    <!-- /header -->
+    
+    
+
+<!-- details page -->
+<section class="single section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="bg-white pl-lg-4 py-4 pr-4 mb-5 mb-lg-0 sticky-top top-100 overflow-hidden">
+          <ul class="list-styled">
+            
+            <a class="d-block h4 back-btn" href="/blog/fr"></a>
+            
+              
+            
+              
+            
+              
+            
+               
+              
+
+
+
+
+
+
+
+
+<li data-nav-id="https://sogloarcadius.github.io/blog/fr/ucpe/" title="Univerval CPE" class="sidelist
+  active">
+  <a href="https://sogloarcadius.github.io/blog/fr/ucpe/">
+    Univerval CPE
+  </a>
+  
+  
+</li>
+
+
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-lg-5 p-4 bg-white">
+          <h2 class="mb-5">Univerval CPE</h2>
+          
+          <div class="content"><p>L&rsquo;uCPE est un cas d’usage de la virtualisation des réseaux (NFV) chez les opérateurs télécoms.</p>
+<p>On retrouve sur chaque site client, des uCPE qui sont des nouvelles générations de CE qui permettent une flexibilité d’instanciation de nouveaux services sur le routeur client.</p>
+<p>Il s’agit de boitier qui supporte la virtualisation des réseaux.</p>
+<p>On va pourvoir instancier plusieurs Virtual Network Functions (router, SD-WAN, VPN, NAT, DHCP, IPS/IDS, PBX, transcoders, WAN optimization) sur le boitier et grâce aux Service Chaining (interconnexion entre les VNF sur le boitier) activer des services sur les sites clients.</p>
+<p><img src="ucpe.encs.png" alt="ucpe"></p>
+<p>Il existe plusieurs vendeurs d&rsquo;uCPE sur le marché :</p>
+<ul>
+<li>
+<p>DELL Poweredge R430</p>
+</li>
+<li>
+<p>Advantech FWA1603</p>
+</li>
+<li>
+<p>Cisco ENCS54xx</p>
+</li>
+</ul>
+<h5 id="etapes-de-configuration">Etapes de configuration</h5>
+<p>Voici les principales étapes pour configurer un uCPE</p>
+<h6 id="premiére-étape"><strong>Premiére étape</strong></h6>
+<p>Cette étape peut etre automatique avec les approches (Plug &amp; Play, Zero Touch provisionning, Self Install/Easy install).</p>
+<ul>
+<li>Upgrade éventuelle du plateforme manager (gestionnaire de l&rsquo;infrastructure virtuelle : NFVIS, Openstack,..)</li>
+<li>Configuration des interfaces réseaux (LAN, WAN)</li>
+<li>Onbording , Déploiement et Configuration de vRouter (ex : ISRv) =&gt; permet accès au réseau client et réseau management</li>
+<li>Platform manager et vRouter à présent opérationnel avec une configuration initiale (D0)</li>
+</ul>
+<h6 id="deuxiéme-étape"><strong>Deuxiéme étape</strong></h6>
+<p>Une fois la configuration initiale déployé, on peut prendre la main à distance sur l&rsquo;uCPE pour :</p>
+<ul>
+<li>ajouter de nouvelles VNF</li>
+<li>faire le chaining de VNF en fonction des besoins client</li>
+</ul>
+<p>La prise en main se fait à partir de réseau de management déja configuré dans l&rsquo;uCPE (VRF INT-MNGT)</p>
+<p><img src="ucpe.mgmt.png" alt="ucpe mgmt"></p>
+<p>Les actions à éffectuer sur l&rsquo;uCPE sont :</p>
+<p><strong>VNF Onbording</strong></p>
+<ul>
+<li>Charger la VNF sur l’uCPE (Upload)</li>
+<li>Vérifier que la VNF à bien été détecté par l’uCPE</li>
+<li>Booting de la VNF</li>
+<li>Connexion de la VNF avec les réseaux (Virtual links, …)</li>
+<li>Démarrage de la VNF</li>
+<li>Vérification des fonctionnalités de base de la VNF ( traffic, performance)</li>
+<li>Reboot la VNF et on s’assure que les fonctionnalités sont toujours UP</li>
+</ul>
+<p><strong>SFC : Service Function Chaining</strong></p>
+<ul>
+<li>Création de lien réseau entre VNF</li>
+<li>Gestion du graph de liens entre les VNF</li>
+</ul>
+<p><strong>Gestion de l&rsquo;uCPE</strong></p>
+<ul>
+<li>Service activation</li>
+<li>CRUD (Create, Read, Update, Delete) sur les services</li>
+<li>Gestion du catalogue de service (NS)</li>
+<li>Gestion du catalogue de VNF</li>
+<li>Gestion de licence des VNF</li>
+<li>Vérifier régulièrement l’état des VNF pour renvoyer des alarmes et notifications</li>
+<li>Permettre de gérer les différents états de la VNF ( reboot, reset, update, …) =&gt; VNF Life Cycle Management</li>
+<li>Remonté  des statistiques sur l&rsquo;utilisation des puissances de calcul, stockage, réseaux</li>
+<li>Remonté des statistiques sur les Virtual Links, virtual networks, …</li>
+<li>Représentation graphique du réseau (VNF Chaining, VL, VFFG, FP) et fournir une abstraction pour modification</li>
+</ul>
+</div>
+          
+          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 22 Mar 2020</p>
+          <nav class="pagination mt-3">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <a class="nav nav-prev" href="https://sogloarcadius.github.io/blog/fr/nfv/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">NFV</span></a>
+            
+            
+            <a class="nav nav-next" href="https://sogloarcadius.github.io/blog/fr/sdn-nfv/"> <span class="d-none d-md-block">SDN &amp; NFV</span><i class="ti-arrow-right ml-2"></i></a>
+            
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details page -->
+
+
+
+
+
+    <!-- footer -->
+<footer class="section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+       <p>© sogloarcadius</p>
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://www.facebook.com/sogloarcadius"><i class="ti-facebook"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/sogloarcadius"><i class="ti-twitter-alt"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://www.linkedin.com/in/arcadius-soglo-275bb180/"><i class="ti-linkedin"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Main Script -->
+
+<script src="https://sogloarcadius.github.io/blog/js/script.min.js"></script>
+  </body>
+
+</html>
