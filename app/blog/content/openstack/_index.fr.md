@@ -1,10 +1,11 @@
 ---
-title: "Openstack"
-description: "Comprendre openstack"
-date: 2020-03-22T15:20:43+01:00
+title: "Comprendre les bases du fonctionnement d'OPENSTACK"
+description: ""
+date: 2020-03-24T10:45:00+01:00
+lastmod: 2020-04-16T15:20:12+01:00
+draft: false
 type: "docs"
 icon: "ti-book"
-draft: false
 keywords: ["openstack", "nfv", "cloud"]
 ---
 

@@ -1,8 +1,8 @@
 ---
-title: "SDN & NFV"
-description: "SDN and NFV Overview"
-date: 2020-03-22T15:20:12+01:00
-lastmod: 2020-03-22T15:20:12+01:00
+title: "Learn the basics of SDN and NFV"
+description: ""
+date: 2015-10-30T10:45:00+01:00
+lastmod: 2020-04-16T15:20:12+01:00
 draft: false
 type: "docs"
 icon: "ti-book"

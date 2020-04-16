@@ -1,8 +1,8 @@
 ---
-title: "SDN & NFV"
-description: "Introduction SDN & NFV"
-date: 2020-03-22T15:20:12+01:00
-lastmod: 2020-03-22T15:20:12+01:00
+title: "Introduction au SDN et NFV"
+description: ""
+date: 2015-10-30T10:45:00+01:00
+lastmod: 2020-04-16T15:20:12+01:00
 draft: false
 type: "docs"
 icon: "ti-book"
@@ -15,7 +15,7 @@ weight: 1
  
 Pour mettre en place les services internet (sites web, jeux en ligne, applications en ligne,…) nous utilisons les équipements réseaux (**routeurs**, **switch**, **serveurs**, …) pour faire fonctionner ces différents services. Avec l’explosion des données et des demandes de service, ces équipements réseaux évoluent pour faire face aux besoins des clients.
 
-Les entreprises hébergent de plus en plus leurs données dans les **centres de donnés** (datacenter) et leurs réseaux sont gérés dans le Cloud pour leur permettre plus de flexibilité et d’économie. Il existe aujourd’hui de nombreux fournisseurs qui proposent aux entreprises d’héberger leurs données ou applications dans le Cloud. Les datacenters se multiplient donc et les réseaux des opérateurs télécoms évoluent aussi pour faire face aux demandes en bande passante (débit). 
+Les entreprises hébergent de plus en plus leurs données dans les **centres de donnés** (data centre) et leurs réseaux sont gérés dans le Cloud pour leur permettre plus de flexibilité et d’économie. Il existe aujourd’hui de nombreux fournisseurs qui proposent aux entreprises d’héberger leurs données ou applications dans le Cloud. Les datacenters se multiplient donc et les réseaux des opérateurs télécoms évoluent aussi pour faire face aux demandes en bande passante (débit). 
 
 Dans les centres de donnés on retrouve donc des environnements virtualisés basés sur des technologies diverses par exemple VMWare, KVM, …
 
@@ -60,7 +60,7 @@ Le schéma suivant illustre bien le principe du NFV :
 ![NFV](nfv_principle.png "image")
  
 Les VNF (Virtual Network Functions) sont des fonctions réseaux virtualisés hébergés dans des machines virtuelles. 
-On aura donc passage **d'appliances physiques** à des appliances virtuelles et les performances des serveurs seront de plus en plus élevées.
+On aura donc passage **d'équipements physiques** à des équipements virtuelles et les performances des serveurs seront de plus en plus élevées.
 A l’aide donc d’APIs, les applications vont pourvoir dialoguer avec le réseau pour obtenir des informations sur l'état du réseau, créer des services, etc…
 
 Le couplage du SDN et du NFV, aboutira donc à des infrastructures centralisées.

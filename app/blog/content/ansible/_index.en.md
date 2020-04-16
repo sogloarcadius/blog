@@ -1,10 +1,11 @@
 ---
-title: "Ansible"
-description: "Automation with Ansible"
-date: 2020-03-22T15:20:43+01:00
+title: "Usefull links for automation with Ansible"
+description: ""
+date: 2020-03-24T10:45:00+01:00
+lastmod: 2020-04-16T15:20:12+01:00
+draft: false
 type: "docs"
 icon: "ti-book"
-draft: false
 keywords: ["automation", "network", "ansible"]
 weight: 1
 ---
@@ -24,13 +25,13 @@ weight: 1
 * [Ansible Code Conventions](https://openedx.atlassian.net/wiki/spaces/OpenOPS/pages/26837527/Ansible+Code+Conventions)
 
 
-**How to reduce your Ansible technical debt**
+**How to reduce your Ansible technical debt ?**
 
-* Modular
-* Reutilisable
-* Maintenable
+* Modularity
+* Reusability
+* Maintainability
 * User friendly
-* Available
+* Availability
 * Documentation 
 * Configurable
-* logging
+* Logging

@@ -1,10 +1,11 @@
 ---
-title: "Git"
-description: "Comprendre Git"
-date: 2020-03-22T15:20:43+01:00
+title: "Apprendre les bases de GIT"
+description: ""
+date: 2020-03-24T10:45:00+01:00
+lastmod: 2020-04-16T15:20:12+01:00
+draft: false
 type: "docs"
 icon: "ti-book"
-draft: false
 keywords: ["automatisation", "git"]
 weight: 3
 ---

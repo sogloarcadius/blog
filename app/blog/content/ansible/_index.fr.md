@@ -1,10 +1,11 @@
 ---
-title: "Ansible"
-description: "Automatisation avec ansible"
-date: 2020-03-22T15:20:43+01:00
+title: "Liens pour apprendre à utiliser Ansible pour faire de l'automatisation"
+description: ""
+date: 2020-03-24T10:45:00+01:00
+lastmod: 2020-04-16T15:20:12+01:00
+draft: false
 type: "docs"
 icon: "ti-book"
-draft: false
 keywords: ["automatisation", "réseaux", "ansible"]
 weight: 4
 ---
@@ -24,7 +25,7 @@ weight: 4
 * [Ansible Code Conventions](https://openedx.atlassian.net/wiki/spaces/OpenOPS/pages/26837527/Ansible+Code+Conventions)
 
 
-**Comment réduire sa dette technique Ansible**
+**Comment réduire sa dette technique Ansible ?**
 
 * Modularité
 * Réutilisable
