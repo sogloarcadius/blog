@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Jenkins on Blog</title>
+    <title>Introduction to CI/CD with JENKINS on Blog</title>
     <link>https://sogloarcadius.github.io/blog/jenkins/</link>
-    <description>Recent content in Jenkins on Blog</description>
+    <description>Recent content in Introduction to CI/CD with JENKINS on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright> © sogloarcadius</copyright>
-    <lastBuildDate>Sun, 22 Mar 2020 15:20:43 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 24 Mar 2020 10:45:00 +0100</lastBuildDate>
     
 	<atom:link href="https://sogloarcadius.github.io/blog/jenkins/index.xml" rel="self" type="application/rss+xml" />
     

@@ -3,23 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://sogloarcadius.github.io/blog/ansible/</loc>
-    <lastmod>2020-03-22T15:20:43+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://sogloarcadius.github.io/blog/fr/ansible/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sogloarcadius.github.io/blog/ansible/"
-                />
-  </url>
-  
-  <url>
     <loc>https://sogloarcadius.github.io/blog/ucpe/</loc>
-    <lastmod>2020-03-22T15:20:43+01:00</lastmod>
+    <lastmod>2020-04-16T15:20:12+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -33,23 +18,23 @@
   </url>
   
   <url>
-    <loc>https://sogloarcadius.github.io/blog/sdn/</loc>
-    <lastmod>2020-03-22T15:20:51+01:00</lastmod>
+    <loc>https://sogloarcadius.github.io/blog/ansible/</loc>
+    <lastmod>2020-04-16T15:20:12+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://sogloarcadius.github.io/blog/fr/sdn/"
+                href="https://sogloarcadius.github.io/blog/fr/ansible/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://sogloarcadius.github.io/blog/sdn/"
+                href="https://sogloarcadius.github.io/blog/ansible/"
                 />
   </url>
   
   <url>
     <loc>https://sogloarcadius.github.io/blog/contrail/</loc>
-    <lastmod>2020-03-22T15:20:43+01:00</lastmod>
+    <lastmod>2020-04-16T15:20:12+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -64,7 +49,7 @@
   
   <url>
     <loc>https://sogloarcadius.github.io/blog/network-automation/</loc>
-    <lastmod>2020-03-22T15:20:43+01:00</lastmod>
+    <lastmod>2020-04-16T15:20:12+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -79,7 +64,7 @@
   
   <url>
     <loc>https://sogloarcadius.github.io/blog/nfv/</loc>
-    <lastmod>2020-03-22T15:20:43+01:00</lastmod>
+    <lastmod>2020-04-16T15:20:12+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -93,8 +78,23 @@
   </url>
   
   <url>
+    <loc>https://sogloarcadius.github.io/blog/sdn/</loc>
+    <lastmod>2020-04-16T15:20:12+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://sogloarcadius.github.io/blog/fr/sdn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sogloarcadius.github.io/blog/sdn/"
+                />
+  </url>
+  
+  <url>
     <loc>https://sogloarcadius.github.io/blog/sdn-nfv/</loc>
-    <lastmod>2020-03-22T15:20:12+01:00</lastmod>
+    <lastmod>2020-04-16T15:20:12+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -109,7 +109,7 @@
   
   <url>
     <loc>https://sogloarcadius.github.io/blog/git/</loc>
-    <lastmod>2020-03-22T15:20:43+01:00</lastmod>
+    <lastmod>2020-04-16T15:20:12+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -124,7 +124,7 @@
   
   <url>
     <loc>https://sogloarcadius.github.io/blog/jenkins/</loc>
-    <lastmod>2020-03-22T15:20:43+01:00</lastmod>
+    <lastmod>2020-04-16T15:20:12+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -139,7 +139,7 @@
   
   <url>
     <loc>https://sogloarcadius.github.io/blog/netconf/</loc>
-    <lastmod>2020-03-22T15:20:43+01:00</lastmod>
+    <lastmod>2020-04-16T15:20:12+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -154,7 +154,7 @@
   
   <url>
     <loc>https://sogloarcadius.github.io/blog/</loc>
-    <lastmod>2020-03-22T15:20:51+01:00</lastmod>
+    <lastmod>2020-04-16T15:20:12+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -168,38 +168,23 @@
   </url>
   
   <url>
-    <loc>https://sogloarcadius.github.io/blog/nexus/</loc>
-    <lastmod>2020-03-22T15:20:43+01:00</lastmod>
+    <loc>https://sogloarcadius.github.io/blog/sonarqube/</loc>
+    <lastmod>2020-04-16T15:20:12+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://sogloarcadius.github.io/blog/fr/nexus/"
+                href="https://sogloarcadius.github.io/blog/fr/sonarqube/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://sogloarcadius.github.io/blog/nexus/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://sogloarcadius.github.io/blog/openstack/</loc>
-    <lastmod>2020-03-22T15:20:43+01:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://sogloarcadius.github.io/blog/fr/openstack/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sogloarcadius.github.io/blog/openstack/"
+                href="https://sogloarcadius.github.io/blog/sonarqube/"
                 />
   </url>
   
   <url>
     <loc>https://sogloarcadius.github.io/blog/python-testing/</loc>
-    <lastmod>2020-03-22T15:20:43+01:00</lastmod>
+    <lastmod>2020-04-16T15:20:12+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -213,17 +198,32 @@
   </url>
   
   <url>
-    <loc>https://sogloarcadius.github.io/blog/sonarqube/</loc>
-    <lastmod>2020-03-22T15:20:12+01:00</lastmod>
+    <loc>https://sogloarcadius.github.io/blog/openstack/</loc>
+    <lastmod>2020-04-16T15:20:12+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://sogloarcadius.github.io/blog/fr/sonarqube/"
+                href="https://sogloarcadius.github.io/blog/fr/openstack/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://sogloarcadius.github.io/blog/sonarqube/"
+                href="https://sogloarcadius.github.io/blog/openstack/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://sogloarcadius.github.io/blog/nexus/</loc>
+    <lastmod>2020-04-16T15:20:12+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://sogloarcadius.github.io/blog/fr/nexus/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sogloarcadius.github.io/blog/nexus/"
                 />
   </url>
   

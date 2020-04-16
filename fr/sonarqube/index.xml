@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>SonarQube on Blog</title>
+    <title>Introduction à l&#39;analyse de la qualité et sécurité du code on Blog</title>
     <link>https://sogloarcadius.github.io/blog/fr/sonarqube/</link>
-    <description>Recent content in SonarQube on Blog</description>
+    <description>Recent content in Introduction à l&#39;analyse de la qualité et sécurité du code on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
     <copyright> © sogloarcadius</copyright>
-    <lastBuildDate>Sun, 22 Mar 2020 15:20:12 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 24 Mar 2020 10:45:00 +0100</lastBuildDate>
     
 	<atom:link href="https://sogloarcadius.github.io/blog/fr/sonarqube/index.xml" rel="self" type="application/rss+xml" />
     
