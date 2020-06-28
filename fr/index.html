@@ -138,6 +138,12 @@
 					var projects = [
 						
 						{
+							value: "Cisco pyATS \x26 SSH Proxy",
+							label: "<p> La traduction en français n\x26rsquo;est pas encore disponible.  Je vous prie de m\x26rsquo;excuser.\n </p><p>automation</p><p>network</p><p>pyats</p><p>genie</p><p>cisco</p>",
+							url:"https:\/\/sogloarcadius.github.io\/blog\/fr\/pyats\/"
+						},
+						
+						{
 							value: "Comprendre les bases de fonctionnement d\x27un uCPE",
 							label: "<p>L\x26rsquo;uCPE est un cas d’usage de la virtualisation des réseaux (NFV) chez les opérateurs télécoms.\nOn retrouve sur chaque site client, des uCPE qui sont des nouvelles générations de CE qui permettent une flexibilité d’instanciation de nouveaux services sur le routeur client.\nIl s’agit de boitier qui supporte la virtualisation des réseaux.\nOn va pourvoir instancier plusieurs Virtual Network Functions (router, SD-WAN, VPN, NAT, DHCP, IPS\/IDS, PBX, transcoders, WAN optimization) sur le boitier et grâce aux Service Chaining (interconnexion entre les VNF sur le boitier) activer des services sur les sites clients.\nIl existe plusieurs vendeurs d\x26rsquo;uCPE sur le marché :\n  DELL Poweredge R430\n  Advantech FWA1603\n  Cisco ENCS54xx\n  Etapes de configuration Voici les principales étapes pour configurer un uCPE\nPremiére étape Cette étape peut etre automatique avec les approches (Plug \x26amp; Play, Zero Touch provisionning, Self Install\/Easy install).\n Upgrade éventuelle du plateforme manager (gestionnaire de l\x26rsquo;infrastructure virtuelle : NFVIS, Openstack,..) Configuration des interfaces réseaux (LAN, WAN) Onbording , Déploiement et Configuration de vRouter (ex : ISRv) =\x26gt; permet accès au réseau client et réseau management Platform manager et vRouter à présent opérationnel avec une configuration initiale (D0)  Deuxiéme étape Une fois la configuration initiale déployé, on peut prendre la main à distance sur l\x26rsquo;uCPE pour :\n ajouter de nouvelles VNF faire le chaining de VNF en fonction des besoins client  La prise en main se fait à partir de réseau de management déja configuré dans l\x26rsquo;uCPE (VRF INT-MNGT)\nLes actions à éffectuer sur l\x26rsquo;uCPE sont :\nVNF Onbording\n Charger la VNF sur l’uCPE (Upload) Vérifier que la VNF à bien été détecté par l’uCPE Booting de la VNF Connexion de la VNF avec les réseaux (Virtual links, …) Démarrage de la VNF Vérification des fonctionnalités de base de la VNF ( traffic, performance) Reboot la VNF et on s’assure que les fonctionnalités sont toujours UP  SFC : Service Function Chaining\n Création de lien réseau entre VNF Gestion du graph de liens entre les VNF  Gestion de l\x26rsquo;uCPE\n Service activation CRUD (Create, Read, Update, Delete) sur les services Gestion du catalogue de service (NS) Gestion du catalogue de VNF Gestion de licence des VNF Vérifier régulièrement l’état des VNF pour renvoyer des alarmes et notifications Permettre de gérer les différents états de la VNF ( reboot, reset, update, …) =\x26gt; VNF Life Cycle Management Remonté des statistiques sur l\x26rsquo;utilisation des puissances de calcul, stockage, réseaux Remonté des statistiques sur les Virtual Links, virtual networks, … Représentation graphique du réseau (VNF Chaining, VL, VFFG, FP) et fournir une abstraction pour modification  </p><p>nfv</p><p>ucpe</p>",
 							url:"https:\/\/sogloarcadius.github.io\/blog\/fr\/ucpe\/"
@@ -268,6 +274,14 @@
           <h2 class="section-title">Contenus</h2>
         </div>
         <!-- topic-item -->
+        
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <a href="https://sogloarcadius.github.io/blog/fr/pyats/" class="px-4 py-5 bg-white shadow text-center d-block match-height">
+            <i class="ti-book icon text-primary d-block mb-4"></i>
+            <h3 class="mb-3 mt-0">Cisco pyATS &amp; SSH Proxy</h3>
+            <p class="mb-0"></p>
+          </a>
+        </div>
         
         <div class="col-lg-4 col-sm-6 mb-4">
           <a href="https://sogloarcadius.github.io/blog/fr/ucpe/" class="px-4 py-5 bg-white shadow text-center d-block match-height">

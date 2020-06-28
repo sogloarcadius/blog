@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta charset="utf-8">
+  <title>Cisco pyATS &amp; Genie Abstraction Engine &amp; SSH Proxy</title>
+
+  <meta name="generator" content="Hugo 0.68.1" />
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/bootstrap/bootstrap.min.css">
+
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/themify-icons/themify-icons.css">
+
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://sogloarcadius.github.io/blog/plugins/highlight/hybrid.css">
+
+  <!--Favicon-->
+  <link rel="icon" href="https://sogloarcadius.github.io/blog/images/favicon.png" type="image/x-icon">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+  
+  <style>
+  :root{
+    --primary-color:#03A9F4;
+    --body-color:#f9f9f9;
+    --text-color:#636363;
+    --text-color-dark:#242738;
+    --white-color:#ffffff;
+    --light-color:#f8f9fa;
+    --font-family:Lato;
+  }
+  </style>
+
+<!-- Main Stylesheet -->
+
+<link rel="stylesheet" href="https://sogloarcadius.github.io/blog/css/style.min.css" media="screen">
+
+<!-- jquiry -->
+<script src="https://sogloarcadius.github.io/blog/plugins/jquery/jquery-1.12.4.js"></script>
+
+<!-- jquary ui -->
+<script src="https://sogloarcadius.github.io/blog/plugins/jquery/jquery-ui.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://sogloarcadius.github.io/blog/plugins/bootstrap/bootstrap.min.js"></script>
+
+<!-- match-height JS -->
+<script src="https://sogloarcadius.github.io/blog/plugins/match-height/jquery.matchHeight-min.js"></script>
+
+<!-- highlight -->
+<script src="https://sogloarcadius.github.io/blog/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+  
+  <body>
+    
+    <!-- header -->
+    <header class="shadow-bottom sticky-top bg-white">
+      <nav class="navbar navbar-expand-md navbar-light">
+  <div class="container">
+    <a class="navbar-brand px-2" href="/blog">
+      
+      
+      
+      Blog
+      
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="/blog">Home</a>
+        </li>
+        
+      </ul>
+      
+      <select class="lang-list dark" id="select-language"
+        onchange="location = this.value;">
+        
+        
+        
+        
+        
+        
+        
+        
+        <option id="fr" value="https://sogloarcadius.github.io/blog/fr/pyats/">Fr</option>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <option id="en" value="https://sogloarcadius.github.io/blog/pyats/" selected>En
+        </option>
+        
+        
+        
+        
+      </select>
+      
+    </div>
+  </div>
+</nav>
+    </header>
+    <!-- /header -->
+    
+    
+
+<!-- details page -->
+<section class="single section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="bg-white pl-lg-4 py-4 pr-4 mb-5 mb-lg-0 sticky-top top-100 overflow-hidden">
+          <ul class="list-styled">
+            
+            <a class="d-block h4 back-btn" href="/blog"></a>
+            
+               
+              
+
+
+
+
+
+
+
+
+<li data-nav-id="https://sogloarcadius.github.io/blog/pyats/" title="Cisco pyATS &amp; Genie Abstraction Engine &amp; SSH Proxy" class="sidelist
+  active">
+  <a href="https://sogloarcadius.github.io/blog/pyats/">
+    Cisco pyATS &amp; Genie Abstraction Engine &amp; SSH Proxy
+  </a>
+  
+  
+</li>
+
+
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-lg-5 p-4 bg-white">
+          <h2 class="mb-5">Cisco pyATS &amp; Genie Abstraction Engine &amp; SSH Proxy</h2>
+          
+          <div class="content"><h2 id="introduction">Introduction</h2>
+<p>Cisco made available to developpers his internal network testing library for free.</p>
+<p>pyATS is a network device agnostic test and automation solution with building blocks to allow developpers to</p>
+<ul>
+<li>Configure network devices</li>
+<li>Parse network devices commands output</li>
+<li>Run tests (reusable test cases like pytest/unittest)</li>
+<li>etc&hellip;</li>
+</ul>
+<p>For more detail on what the library can do, please refer to the official documentation on Cisco DEVNET.</p>
+<ul>
+<li><a href="https://pubhub.devnetcloud.com/media/pyats-getting-started/docs/intro/introduction.html#what-is-the-pyats-ecosystem">pyATS Getting Started</a></li>
+</ul>
+<p>It is important to understand that pyATS is the core engine and it is integrated with different modules to give the end user a high level abstraction to interact with network devices. An important library is <strong>genie</strong> which gives access to parsers, device configuration objects, tests modules and other features.</p>
+<p>pyATS by design allow the use of custom connection plugin, so it is easy to extend it to support a new device. <strong>Unicon</strong> is the main connection library for telnet, ssh,&hellip;  and it supports many vendors devices and of course you can contribute to the plugins development.</p>
+<p>Check the following links to get more details on the pyATS ecosystem :</p>
+<ul>
+<li><a href="https://developer.cisco.com/pyats/">Devnet Page</a></li>
+<li><a href="https://developer.cisco.com/docs/pyats/#!introduction">Documentations Links</a></li>
+<li><a href="https://developer.cisco.com/docs/pyats-getting-started/">pyATS Getting Started</a></li>
+<li><a href="https://developer.cisco.com/docs/pyats-development-guide/">pyATS Developper Guide</a></li>
+<li><a href="https://developer.cisco.com/docs/pyats/api/">pyATS Code Documentation</a></li>
+<li><a href="https://developer.cisco.com/docs/genie-docs/">Genie Documentation</a></li>
+<li><a href="https://pubhub.devnetcloud.com/media/unicon/docs/user_guide/introduction.html">Unicon</a></li>
+<li><a href="https://github.com/CiscoTestAutomation/unicon.plugins">Unicon Plugins</a></li>
+</ul>
+<h2 id="genie-abstraction-engine--ssh-proxy">Genie Abstraction Engine &amp; SSH Proxy</h2>
+<p>pyATS provides a Command Line Interface which can be used with a testbed file or you can create a python script to implement your own logic by using the python objects.</p>
+<p>If you are new to pyATS, please go through the documentation to take hands on tutorials and there are a lot of ressources on internet to help you get started.</p>
+<p>In this post, i am focusing on the configuration of the SSH Proxy using a python script and giving details on the different python objects used.</p>
+<p>First confirm you install pyats and genie, for example using python pip</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+$ pip install pyats<span style="color:#f92672">[</span>full<span style="color:#f92672">]</span>
+
+</code></pre></div><p>Now create your python script and follow the instructions below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">
+<span style="color:#f92672">from</span> pyats.topology <span style="color:#f92672">import</span> Testbed
+<span style="color:#f92672">from</span> pyats.topology.credentials <span style="color:#f92672">import</span> Credentials
+<span style="color:#f92672">from</span> genie.conf.base.device <span style="color:#f92672">import</span> Device
+
+</code></pre></div><p>Three main import is needed :</p>
+<ul>
+<li>
+<p><strong>Testbed</strong> is the object to create a topology. Topology objects are just like Testbed YAML files but using python objects. It allows us to use a custom input file different than the <a href="https://pubhub.devnetcloud.com/media/pyats/docs/topology/schema.html#topology-schema">official format</a>. We can parse our custom file and use python to create the expexted format by pyATS.</p>
+</li>
+<li>
+<p><strong>Credentials</strong> object to create a username/password entries.</p>
+</li>
+<li>
+<p><strong>Device</strong> object to create device objects to be added to the topology object. Notice here, i am importing Device object from genie module. In fact <code>genie Device</code> object inherits <code>pyats Device</code> object and enable specific features based on the device parameters (os, series, &hellip;) for example to access genie parsers.</p>
+</li>
+</ul>
+<p>In fact Cisco defines an abstraction library that allow to dynamically select the correct classes (parsers, connections, configurations) based on the user input (tokens : os, series, platform, &hellip;).
+For details on this abstraction library, read the documentation which provide valuable information on the <a href="https://pubhub.devnetcloud.com/media/genie-docs/docs/abstract/index.html">Genie Abstraction package</a>.</p>
+<p>Genie parsers, most of the times define default <em>token(s)</em> to use from the <em>Base Device class</em>.</p>
+<p>Because we are defining our topology programmatically, we better make sure Genie know how to select the correct parsers.</p>
+<p>This can be done by adding a custom key value pair to the device object. This is how we tell genie the field (token) to use to select our parser (Abstract Lookup).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">
+<span style="color:#75715e"># https://pubhub.devnetcloud.com/media/genie-docs/docs/abstract/lookup_class.html#integration-with-topology</span>
+
+<span style="color:#66d9ef">device</span>:
+    <span style="color:#66d9ef">my-example-device</span>:
+        <span style="color:#66d9ef">type</span>: router
+        <span style="color:#66d9ef">os</span>: iosxe
+        <span style="color:#66d9ef">series</span>: asr1k
+        <span style="color:#66d9ef">custom</span>:
+            <span style="color:#66d9ef">abstraction</span>:
+                <span style="color:#66d9ef">order</span>: [<span style="color:#e6db74">&#34;os&#34;</span>, <span style="color:#e6db74">&#34;series&#34;</span>, <span style="color:#e6db74">&#34;context&#34;</span>]
+                <span style="color:#66d9ef">context</span>: yang
+</code></pre></div><p>For more detail on the Search Algorithm (Parser Selection), please refer to the official documentation of <a href="https://pubhub.devnetcloud.com/media/genie-docs/docs/abstract/concept.html#search-algorithm">Genie Abstraction package</a></p>
+<p>After importing the required object, we can create our devices and add them to a topology</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">
+topology <span style="color:#f92672">=</span> Testbed(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;topology&#34;</span>)
+
+
+proxy_ssh_command <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ssh -l {login} -p {port} -vrf GREEN {ip}&#34;</span>
+proxy_device <span style="color:#f92672">=</span> Device(
+    name<span style="color:#f92672">=</span>proxy_hostname,
+    credentials<span style="color:#f92672">=</span>Credentials(dict(default<span style="color:#f92672">=</span>dict(username<span style="color:#f92672">=</span>proxy_username,password<span style="color:#f92672">=</span>proxy_password))),   
+    alias<span style="color:#f92672">=</span>proxy_hostname,
+    type<span style="color:#f92672">=</span>proxy_type,
+    os<span style="color:#f92672">=</span>proxy_os,
+    series<span style="color:#f92672">=</span>proxy_series,
+    connections<span style="color:#f92672">=</span>{
+        <span style="color:#e6db74">&#39;defaults&#39;</span>: {
+            <span style="color:#e6db74">&#39;class&#39;</span>: <span style="color:#e6db74">&#39;unicon.Unicon&#39;</span>,
+            <span style="color:#e6db74">&#39;alias&#39;</span>: <span style="color:#e6db74">&#39;default&#39;</span>,
+            <span style="color:#e6db74">&#39;via&#39;</span>: <span style="color:#e6db74">&#39;green&#39;</span>,
+        },
+        <span style="color:#e6db74">&#39;green&#39;</span>: {
+                    <span style="color:#e6db74">&#34;arguments&#34;</span>: dict(init_config_commands<span style="color:#f92672">=</span>[], init_exec_commands<span style="color:#f92672">=</span>[]),
+                    <span style="color:#e6db74">&#34;command&#34;</span>: proxy_ssh_command<span style="color:#f92672">.</span>format(login<span style="color:#f92672">=</span>proxy_username, port<span style="color:#f92672">=</span>proxy_port, ip<span style="color:#f92672">=</span>proxy_management_ip)
+                }
+    }
+)
+
+topology<span style="color:#f92672">.</span>add_device(proxy_device)
+
+
+target_device <span style="color:#f92672">=</span> Device(
+        name<span style="color:#f92672">=</span>target_hostname,
+        credentials<span style="color:#f92672">=</span>Credentials(dict(default<span style="color:#f92672">=</span>dict(username<span style="color:#f92672">=</span>target_username,password<span style="color:#f92672">=</span>target_password))),
+        type<span style="color:#f92672">=</span>target_type,
+        os<span style="color:#f92672">=</span>target_os,
+        series<span style="color:#f92672">=</span>target_series,
+        custom<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;abstraction&#39;</span>: {<span style="color:#e6db74">&#39;order&#39;</span>: [<span style="color:#e6db74">&#34;os&#34;</span>]} }, <span style="color:#75715e"># could be [&#34;os&#34;, &#34;series&#34;] or [&#34;os&#34;, &#34;platform&#34;] or custom field value as described above</span>
+        connections<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;default&#39;</span>: dict(ip<span style="color:#f92672">=</span>target_management_ip,
+                                    arguments<span style="color:#f92672">=</span>dict(init_config_commands<span style="color:#f92672">=</span>[], init_exec_commands<span style="color:#f92672">=</span>[]),
+                                    protocol<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ssh&#39;</span>,
+                                    port<span style="color:#f92672">=</span>target_port,
+                                    proxy<span style="color:#f92672">=</span>[proxy_hostname,] <span style="color:#75715e"># Expect string or list of string which reference a device name in topology</span>
+                                )
+                    }
+)
+
+
+topology<span style="color:#f92672">.</span>add_device(target_device)
+
+</code></pre></div><p>Notice, that pyATS allow us to create different connections for a device and we can specify the one to use during the connection using the <strong>via</strong>.
+For more information on the different ways to configure your connections refer to the <a href="https://pubhub.devnetcloud.com/media/pyats/docs/topology/schema.html#production-yaml-schema">documentation</a>.</p>
+<p>We can use the command key option to override the default ssh command used by the connection plugin to connect to the device for example to use SSH options or specify a VRF if using a router as a Jump host (SSH Proxy). By the way the default command used by unicon to connect to devices will not work on Cisco routers (default unicon.Unicon ssh command &ldquo;ssh -l target_username target_management_ip -p 22&rdquo;).</p>
+<p>Unicon Connection plugins support the use of proxy. In the connection(s), we can specify one proxy or a list of proxy to use to get to the target device.
+Find more information on the possible configurations options on <a href="https://pubhub.devnetcloud.com/media/unicon/docs/user_guide/proxy.html#connection-through-proxies">unicon documentation</a>.</p>
+<p>Be aware, that the proxy key expect a string or list of string. Do not try to pass him a Device object(s), pyATS is unable to detect it. I have done the testing and didn&rsquo;t work that way.</p>
+<p>Make sure your proxy(ies) and target device are linked to the same topology(testbed object) and that you specify the exact proxy name(s) configured in the topology.</p>
+<p>Now, you can connect to the device and access all the features of pyats and genie.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">
+target_device<span style="color:#f92672">.</span>connect(log_stdout<span style="color:#f92672">=</span>log_stdout, connection_timeout<span style="color:#f92672">=</span>connection_timeout, learn_hostname<span style="color:#f92672">=</span>learn_hostname, settings<span style="color:#f92672">=</span>dict(
+            GRACEFUL_DISCONNECT_MAX_WAIT_SEC<span style="color:#f92672">=</span>graceful_disconnect_max_wait_sec, POST_DISCONNECT_WAIT_SEC<span style="color:#f92672">=</span>post_disconnect_wait_sec))
+
+
+target_device<span style="color:#f92672">.</span>execute(command)
+
+target_device<span style="color:#f92672">.</span>parse(command)
+
+target_device<span style="color:#f92672">.</span>configure(config)
+
+target_device<span style="color:#f92672">.</span>disconnect()
+
+target_device<span style="color:#f92672">.</span>destroy()
+
+</code></pre></div></div>
+          
+          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 28 Jun 2020</p>
+          <nav class="pagination mt-3">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <a class="nav nav-prev" href="https://sogloarcadius.github.io/blog/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Blog</span></a>
+            
+            
+            <a class="nav nav-next" href="https://sogloarcadius.github.io/blog/ucpe/"> <span class="d-none d-md-block">Learn the basics of Univerval CPE</span><i class="ti-arrow-right ml-2"></i></a>
+            
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details page -->
+
+
+
+
+
+    <!-- footer -->
+<footer class="section pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 text-md-left text-center">
+       <p>© sogloarcadius</p>
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline mb-3">
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://www.facebook.com/sogloarcadius"><i class="ti-facebook"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://twitter.com/sogloarcadius"><i class="ti-twitter-alt"></i></a></li>
+          
+          <li class="list-inline-item"><a class="text-color d-inline-block p-2" href="https://www.linkedin.com/in/arcadius-soglo-275bb180/"><i class="ti-linkedin"></i></a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Main Script -->
+
+<script src="https://sogloarcadius.github.io/blog/js/script.min.js"></script>
+  </body>
+
+</html>
