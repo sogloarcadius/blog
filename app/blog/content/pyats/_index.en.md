@@ -2,7 +2,7 @@
 title: "Cisco pyATS & Genie Abstraction Engine & SSH Proxy"
 description: ""
 date: 2020-06-28T08:56:58+02:00
-lastmod: 2020-06-28T08:56:58+02:00
+lastmod: 2020-07-12T12:42:58+02:00
 draft: false
 type: "docs"
 icon: "ti-book"
@@ -14,12 +14,7 @@ weight: 1
 
 Cisco made available to developpers his internal network testing library for free.
 
-pyATS is a network device agnostic test and automation solution with building blocks to allow developpers to 
-
-- Configure network devices
-- Parse network devices commands output
-- Run tests (reusable test cases like pytest/unittest)
-- etc... 
+pyATS is a network device agnostic test and automation solution with building blocks to allow developpers to configure network devices, parse network devices commands output, run tests (reusable test cases like pytest/unittest).
 
 For more detail on what the library can do, please refer to the official documentation on Cisco DEVNET.
 
@@ -146,7 +141,7 @@ target_device = Device(
                                     arguments=dict(init_config_commands=[], init_exec_commands=[]),
                                     protocol='ssh',
                                     port=target_port,
-                                    proxy=[proxy_hostname,] # Expect string or list of string which reference a device name in topology
+                                    proxy=proxy_hostname
                                 )
                     }
 )
@@ -160,13 +155,24 @@ topology.add_device(target_device)
 Notice, that pyATS allow us to create different connections for a device and we can specify the one to use during the connection using the **via**.
 For more information on the different ways to configure your connections refer to the [documentation](https://pubhub.devnetcloud.com/media/pyats/docs/topology/schema.html#production-yaml-schema).
 
-We can use the command key option to override the default ssh command used by the connection plugin to connect to the device for example to use SSH options or specify a VRF if using a router as a Jump host (SSH Proxy). By the way the default command used by unicon to connect to devices will not work on Cisco routers (default unicon.Unicon ssh command "ssh -l target_username target_management_ip -p 22").
-
+We can use the command key option to override the default ssh command used by the connection plugin to connect to the device for example to use SSH options or specify a VRF if using a router as a Jump host (SSH Proxy). The default command used by unicon to connect to devices will not work on Cisco routers (default unicon.Unicon ssh command "ssh -l target_username target_management_ip -p 22").
 
 Unicon Connection plugins support the use of proxy. In the connection(s), we can specify one proxy or a list of proxy to use to get to the target device.
-Find more information on the possible configurations options on [unicon documentation](https://pubhub.devnetcloud.com/media/unicon/docs/user_guide/proxy.html#connection-through-proxies). 
 
-Be aware, that the proxy key expect a string or list of string. Do not try to pass him a Device object(s), pyATS is unable to detect it. I have done the testing and didn't work that way.
+You just specify a string (proxy hostname) if using one proxy but if using multiple proxies the intermediate proxies should specify the command used to connect to the next proxy. For multiple proxies, you should pass a list of dictionnary. 
+
+```py
+...
+port=target_port
+proxy=[ {"device": "proxy1_hostname", "command": "ssh -l proxy2_login proxy2_ipaddress"}, {"device": "proxy2_hostname"} ]
+...
+
+```
+
+If using multiple proxies, you need to create a function that take a list of proxies and add them to the topology but you also need to create the expected list of dictionary to pass to the target device connection.
+
+Find more information on the possible configurations options on [unicon documentation](https://pubhub.devnetcloud.com/media/unicon/docs/user_guide/proxy.html#connection-through-proxies).
+
 
 Make sure your proxy(ies) and target device are linked to the same topology(testbed object) and that you specify the exact proxy name(s) configured in the topology.
 
