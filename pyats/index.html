@@ -194,13 +194,7 @@
           
           <div class="content"><h2 id="introduction">Introduction</h2>
 <p>Cisco made available to developpers his internal network testing library for free.</p>
-<p>pyATS is a network device agnostic test and automation solution with building blocks to allow developpers to</p>
-<ul>
-<li>Configure network devices</li>
-<li>Parse network devices commands output</li>
-<li>Run tests (reusable test cases like pytest/unittest)</li>
-<li>etc&hellip;</li>
-</ul>
+<p>pyATS is a network device agnostic test and automation solution with building blocks to allow developpers to configure network devices, parse network devices commands output, run tests (reusable test cases like pytest/unittest).</p>
 <p>For more detail on what the library can do, please refer to the official documentation on Cisco DEVNET.</p>
 <ul>
 <li><a href="https://pubhub.devnetcloud.com/media/pyats-getting-started/docs/intro/introduction.html#what-is-the-pyats-ecosystem">pyATS Getting Started</a></li>
@@ -302,7 +296,7 @@ target_device <span style="color:#f92672">=</span> Device(
                                     arguments<span style="color:#f92672">=</span>dict(init_config_commands<span style="color:#f92672">=</span>[], init_exec_commands<span style="color:#f92672">=</span>[]),
                                     protocol<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ssh&#39;</span>,
                                     port<span style="color:#f92672">=</span>target_port,
-                                    proxy<span style="color:#f92672">=</span>[proxy_hostname,] <span style="color:#75715e"># Expect string or list of string which reference a device name in topology</span>
+                                    proxy<span style="color:#f92672">=</span>proxy_hostname
                                 )
                     }
 )
@@ -312,10 +306,16 @@ topology<span style="color:#f92672">.</span>add_device(target_device)
 
 </code></pre></div><p>Notice, that pyATS allow us to create different connections for a device and we can specify the one to use during the connection using the <strong>via</strong>.
 For more information on the different ways to configure your connections refer to the <a href="https://pubhub.devnetcloud.com/media/pyats/docs/topology/schema.html#production-yaml-schema">documentation</a>.</p>
-<p>We can use the command key option to override the default ssh command used by the connection plugin to connect to the device for example to use SSH options or specify a VRF if using a router as a Jump host (SSH Proxy). By the way the default command used by unicon to connect to devices will not work on Cisco routers (default unicon.Unicon ssh command &ldquo;ssh -l target_username target_management_ip -p 22&rdquo;).</p>
-<p>Unicon Connection plugins support the use of proxy. In the connection(s), we can specify one proxy or a list of proxy to use to get to the target device.
-Find more information on the possible configurations options on <a href="https://pubhub.devnetcloud.com/media/unicon/docs/user_guide/proxy.html#connection-through-proxies">unicon documentation</a>.</p>
-<p>Be aware, that the proxy key expect a string or list of string. Do not try to pass him a Device object(s), pyATS is unable to detect it. I have done the testing and didn&rsquo;t work that way.</p>
+<p>We can use the command key option to override the default ssh command used by the connection plugin to connect to the device for example to use SSH options or specify a VRF if using a router as a Jump host (SSH Proxy). The default command used by unicon to connect to devices will not work on Cisco routers (default unicon.Unicon ssh command &ldquo;ssh -l target_username target_management_ip -p 22&rdquo;).</p>
+<p>Unicon Connection plugins support the use of proxy. In the connection(s), we can specify one proxy or a list of proxy to use to get to the target device.</p>
+<p>You just specify a string (proxy hostname) if using one proxy but if using multiple proxies the intermediate proxies should specify the command used to connect to the next proxy. For multiple proxies, you should pass a list of dictionnary.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#f92672">...</span>
+port<span style="color:#f92672">=</span>target_port
+proxy<span style="color:#f92672">=</span>[ {<span style="color:#e6db74">&#34;device&#34;</span>: <span style="color:#e6db74">&#34;proxy1_hostname&#34;</span>, <span style="color:#e6db74">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;ssh -l proxy2_login proxy2_ipaddress&#34;</span>}, {<span style="color:#e6db74">&#34;device&#34;</span>: <span style="color:#e6db74">&#34;proxy2_hostname&#34;</span>} ]
+<span style="color:#f92672">...</span>
+
+</code></pre></div><p>If using multiple proxies, you need to create a function that take a list of proxies and add them to the topology but you also need to create the expected list of dictionary to pass to the target device connection.</p>
+<p>Find more information on the possible configurations options on <a href="https://pubhub.devnetcloud.com/media/unicon/docs/user_guide/proxy.html#connection-through-proxies">unicon documentation</a>.</p>
 <p>Make sure your proxy(ies) and target device are linked to the same topology(testbed object) and that you specify the exact proxy name(s) configured in the topology.</p>
 <p>Now, you can connect to the device and access all the features of pyats and genie.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">
@@ -335,7 +335,7 @@ target_device<span style="color:#f92672">.</span>destroy()
 
 </code></pre></div></div>
           
-          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 28 Jun 2020</p>
+          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 12 Jul 2020</p>
           <nav class="pagination mt-3">
             
             
