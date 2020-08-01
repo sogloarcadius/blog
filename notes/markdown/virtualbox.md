@@ -34,3 +34,6 @@ sudo mkdir /mnt/shared/
 sudo mount -t vboxsf dropbox /mnt/shared/
 
 
+# Enable Nested virtualization CLI
+
+VBoxManage modifyvm "Ubuntu Desktop 20.04" --nested-hw-virt on
