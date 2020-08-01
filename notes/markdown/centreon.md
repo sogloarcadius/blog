@@ -1,39 +1,34 @@
 
-
-#######################
 ## DATABASE
-#######################
 
 
-## Enable remote connections to centreon database
+* Enable remote connections to centreon database
 
 GRANT ALL PRIVILEGES
 ON *.*
 TO 'centreon'@'%'
 IDENTIFIED BY 'centreon';
 
-##########################
-### Plugins
-##########################
+
+## Plugins
 
 
-## Plugins path
+* Plugins path
 
 Variable name : $CENTREONPLUGINS$
+
 Possible Values :
-	- /usr/lib/centreon/plugins   <== plugins pack installed using plugins manager (clone centreon plugins from github and place it in this folder)
+
+- /usr/lib/centreon/plugins   <== plugins pack installed using plugins manager (clone centreon plugins from github and place it in this folder)
+
+- /usr/lib64/nagios/plugins/
 	
-	- /usr/lib64/nagios/plugins/
 	
-	
-#######################
+
 ## TROUBLESHOOTING
-#######################
-
-
 
  systemctl status httpd24-httpd
- systemctl status snmpd
+ systemctl status snmpdRéseau
  systemctl status snmptrapd
  systemctl status rh-php71-php-fpm
  systemctl status centcore
@@ -66,9 +61,9 @@ systemctl start snmptrapd
 
 
 Remove cenreon files
-# repoquery --installed -l httpd
+#repoquery --installed -l httpd
 
-# bash script 
+#bash script 
 
 systemctl stop rh-php71-php-fpm
 systemctl stop httpd24-httpd
@@ -119,17 +114,17 @@ yum remove centreon-base-config-centreon-engine
 yum remove centreon
 
 
-# centreon
+* centreon
 
 /etc/centreon/centreon.conf.php
 
-# centreon-base-config-centreon-engine
+* centreon-base-config-centreon-engine
 
 /etc/centreon/instCentPlugins.conf
 /etc/centreon/instCentWeb.conf
 /usr/share/centreon/www/install/install.conf.php
 
-# centreon-database
+* centreon-database
 
 /etc/my.cnf.d/centreon.cnf
 /etc/systemd/system/mariadb.service.d/centreon.conf
@@ -137,7 +132,3 @@ yum remove centreon
 rm -rf /var/lib/mysql
 rm /etc/my.cnf
 rm ~/.my.cnf
-
-
-	
-

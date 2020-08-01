@@ -1,5 +1,0 @@
-sudo systemd-resolve - -flush-caches
-
-sudo system-resolve - -statistics
-
-sudo systemctl restart nscd
