@@ -29,9 +29,9 @@ ip addr flush dev eth0
 
 # Flush DNS Resolution caches
 
-sudo systemd-resolve - -flush-caches
+sudo systemd-resolve --flush-caches
 
-sudo system-resolve - -statistics
+sudo systemd-resolve --statistics
 
 sudo systemctl restart nscd
 
