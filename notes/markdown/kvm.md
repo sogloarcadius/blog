@@ -16,10 +16,36 @@ Type II :
 * ...
 
 
-La librairie **libvirt** fournit une abstractihttps://cloudinit.readthedocs.io/en/latest/
+La librairie **libvirt** fournit une abstraction pour accéder à plusieurs hyperviseurs (kvm, xen, virtualbox, vmware, qemu, ...).
+
+C'est une librairie standard sur le noyau linux qui permet également l'émulation de périphériques (network, blocks, console, ...) avec la sous librairie **virtio** 
+
 Le logiciel virt-manager/virt-viewer/virsh est basé sur libvirt pour permettre la création de machine virtuelle QEMU/KVM ou autres.
 
 (virt-manager/virsh/virt-viewer/OpenStack) --> (libvirt) --> (kvm/lxc/xen/esx/...)
+
+
+Pour information, il existe plusieurs techniques pour accéder aux périphériques du matériel sur lequel on installe l'hyperviseur. 
+
+
+* PCI-express/PCIe (Peripheral Component Interconnect Express)
+
+Permet à la machine virtuelle d'accéder directement aux périphériques du matériel (device hardware) comme s'il y est directement connecté.
+Limitation à une seule machine virtuelle par périphérique. (PCI Device)
+
+* SR-IOV
+
+Amélioration de PCIe qui permet l'émulation du PCI Device. L'émulation permet de partager la ressource avec plusieurs VM.
+Accés au périphérique directement (hardware access) ou accés par logiciel (software access). Physical Functions (hardware), Virtual Functions (software)
+
+* OVS-DPDK
+
+* VIRTIO
+
+Inclut dans la librairie standard libvirt. Fournit une abstraction pour accéder aux blocs, network cards, serials, ...
+C'est un logiciel qui tourne sur le matériel sur lequel tourne l'hyperviseur et permet d'accéder aux périphériques. 
+Supporter par plusieurs hyperviseurs et facilite les migrations d'un matériel à l'autre comparé à SR-IOV dont le logiciel dépend du matériel. 
+
 
 
 # Installation sous Ubuntu
