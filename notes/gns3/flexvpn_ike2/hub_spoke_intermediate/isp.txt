@@ -1,0 +1,62 @@
+
+
+!
+no aaa new-model
+!
+!
+interface GigabitEthernet1
+ ip address 172.16.21.245 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet2
+ ip address 192.1.10.6 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3
+ ip address 192.1.20.6 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet4
+ ip address 192.1.30.6 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet5
+ ip address 192.1.40.6 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet6
+ ip address 192.1.50.6 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+router bgp 65000
+ bgp log-neighbor-changes
+ network 192.1.10.0
+ network 192.1.20.0
+ network 192.1.30.0
+ network 192.1.40.0
+ network 192.1.50.0
+ neighbor 192.1.10.1 remote-as 65000
+ neighbor 192.1.10.1 route-reflector-client
+ neighbor 192.1.20.2 remote-as 65000
+ neighbor 192.1.20.2 route-reflector-client
+ neighbor 192.1.30.3 remote-as 65000
+ neighbor 192.1.30.3 route-reflector-client
+ neighbor 192.1.40.4 remote-as 65000
+ neighbor 192.1.40.4 route-reflector-client
+ neighbor 192.1.50.5 remote-as 65000
+ neighbor 192.1.50.5 route-reflector-client
+!
+!
+end

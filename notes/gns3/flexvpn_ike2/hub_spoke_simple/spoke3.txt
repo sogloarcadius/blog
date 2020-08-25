@@ -1,0 +1,103 @@
+
+!
+!
+aaa new-model
+!
+!
+aaa authentication login default local
+aaa authorization exec default local if-authenticated 
+aaa authorization network aaa-auth local 
+!
+!
+vrf definition TRANSPORT
+ rd 65000:1
+ route-target import 65000:1
+ route-target export 65000:1
+ address-family ipv4
+ exit-address-family
+!
+vrf definition YELLOW
+ rd 65000:3
+ route-target import 65000:3
+ route-target export 65000:3
+ address-family ipv4
+ exit-address-family
+!
+interface GigabitEthernet2
+ description *** Link to ISP *** 
+ vrf forwarding TRANSPORT
+ ip address 192.1.30.3 255.255.255.0
+ no shutdown
+!
+interface Loopback0
+ description *** LAN Site connected to SPOKE 3 ***
+ vrf forwarding YELLOW
+ ip address 10.3.3.3 255.255.255.0
+!
+crypto ikev2 authorization policy auth-FLEXVPN  
+ route set interface
+!
+crypto ikev2 proposal prop-FLEXVPN  
+ encryption 3des aes-cbc-128
+ integrity md5 sha1
+ group 2 5
+!
+crypto ikev2 policy poli-FLEXVPN
+ match fvrf TRANSPORT
+ proposal prop-FLEXVPN 
+!
+crypto ikev2 keyring keys-FLEXVPN
+ peer ANY
+  address 0.0.0.0 0.0.0.0
+  pre-shared-key cisco123
+ !
+!
+crypto ikev2 profile prof-FLEXVPN
+ match fvrf TRANSPORT
+ match identity remote address 0.0.0.0 
+ authentication local pre-share
+ authentication remote pre-share
+ keyring local keys-FLEXVPN
+ aaa authorization group psk list aaa-auth auth-FLEXVPN
+ virtual-template 1
+!
+crypto ipsec transform-set TSET esp-3des esp-md5-hmac 
+ mode tunnel
+!
+crypto ipsec profile ipsec-FLEXVPN
+ set transform-set TSET 
+ set ikev2-profile prof-FLEXVPN
+!
+interface Tunnel1
+ ip address negotiated
+ ip nhrp network-id 1
+ ip nhrp shortcut virtual-template 1
+ tunnel source GigabitEthernet2
+ tunnel destination 192.1.10.1
+ tunnel protection ipsec profile ipsec-FLEXVPN
+!
+interface Virtual-Template 1 type tunnel
+ ip unnumbered Tunnel1
+ ip nhrp network-id 1
+ ip nhrp shortcut virtual-template 1
+ tunnel source GigabitEthernet2
+ tunnel protection ipsec profile ipsec-FLEXVPN
+!
+!
+!
+router eigrp 1
+ network 10.0.0.0
+ network 192.168.1.0
+!
+router bgp 65000
+ bgp log-neighbor-changes
+ network 192.1.30.0
+ neighbor 192.1.30.6 remote-as 65000
+ address-family vpnv4
+  neighbor 192.1.30.6 activate
+  neighbor 192.1.30.6 send-community extended
+ exit-address-family
+!
+!
+!
+end

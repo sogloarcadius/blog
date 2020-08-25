@@ -1,0 +1,83 @@
+
+
+vrf definition TRANSPORT
+ rd 65000:1
+ route-target import 65000:1
+ route-target export 65000:1
+ address-family ipv4
+ exit-address-family
+!
+
+
+interface GigabitEthernet2
+ description *** Link to HUB *** 
+ vrf forwarding TRANSPORT
+ ip address 192.1.10.6 255.255.255.0
+ no shutdown
+!
+interface GigabitEthernet3
+ description *** Link to SPOKE 1 *** 
+ vrf forwarding TRANSPORT
+ ip address 192.1.20.6 255.255.255.0
+ no shutdown
+
+!
+interface GigabitEthernet4
+ description *** Link to SPOKE 3 *** 
+ vrf forwarding TRANSPORT
+ ip address 192.1.30.6 255.255.255.0
+ no shutdown
+
+!
+interface GigabitEthernet5
+ description *** Link to SPOKE 4 *** 
+ vrf forwarding TRANSPORT
+ ip address 192.1.40.6 255.255.255.0
+ no shutdown
+
+!
+interface GigabitEthernet6
+ description *** Link to SPOKE 2 *** 
+ vrf forwarding TRANSPORT
+ ip address 192.1.50.6 255.255.255.0
+ no shutdown
+
+!
+router bgp 65000
+ neighbor 192.1.10.1 remote-as 65000
+ neighbor 192.1.10.1 route-reflector-client
+ network 192.1.10.0
+ neighbor 192.1.20.2 remote-as 65000
+ neighbor 192.1.20.2 route-reflector-client
+ network 192.1.20.0
+ neighbor 192.1.30.3 remote-as 65000
+ neighbor 192.1.30.3 route-reflector-client 
+ network 192.1.30.0
+ neighbor 192.1.40.4 remote-as 65000
+ neighbor 192.1.40.4 route-reflector-client 
+ network 192.1.40.0
+ neighbor 192.1.50.5 remote-as 65000
+ neighbor 192.1.50.5 route-reflector-client
+ network 192.1.50.0
+ address-family vpnv4
+  neighbor 192.1.10.1 activate
+  neighbor 192.1.10.1 send-community extended
+  neighbor 192.1.10.1 route-reflector-client
+  neighbor 192.1.20.2 activate
+  neighbor 192.1.20.2 send-community extended
+  neighbor 192.1.20.2 route-reflector-client
+  neighbor 192.1.30.3 activate
+  neighbor 192.1.30.3 send-community extended
+  neighbor 192.1.30.3 route-reflector-client  
+  neighbor 192.1.40.4 activate
+  neighbor 192.1.40.4 send-community extended
+  neighbor 192.1.40.4 route-reflector-client 
+  neighbor 192.1.50.5 activate
+  neighbor 192.1.50.5 send-community extended
+  neighbor 192.1.50.5 route-reflector-client
+ exit-address-family
+!
+
+
+
+
