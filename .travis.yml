@@ -3,6 +3,7 @@ dist: trusty
 language: go
 script:
     - cd app/blog
+    - chmod u+x ./scripts/hugo
     - ./scripts/hugo
 deploy:
   provider: pages
