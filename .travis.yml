@@ -2,14 +2,14 @@
 dist: trusty
 language: go
 script:
-    - cd app/blog
-    - chmod u+x ./scripts/hugo
-    - ./scripts/hugo
+  - chmod u+rwx -R ./app
+  - cd app/blog
+  - ./scripts/hugo
 deploy:
   provider: pages
   local-dir: app/blog/public
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN 
+  github-token: $GITHUB_TOKEN
   keep-history: true
   on:
     branch: master
